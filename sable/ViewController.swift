@@ -44,7 +44,6 @@ class ViewController: NSViewController {
         current_y = position.y
         gestureRecorder(xd: x_movement, yd: y_movement)
     }
-    
 
     let mrd: CGFloat = 50.0// minimum recognition distance (최소 인식 거리)
     let angle: CGFloat = 0.25
@@ -102,8 +101,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var rightDownButton: NSPopUpButton!
     @IBOutlet weak var downLeftButton: NSPopUpButton!
     @IBOutlet weak var leftUpButton: NSPopUpButton!
-    
-    
+
     func motionInterpreter() {
         switch detected {
         case 0b00000010:
