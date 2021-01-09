@@ -1,0 +1,14 @@
+*.DS_Store
+
+xcuserdata/
+*.swp
+*~.nib
+build/
+*.pbxuser
+*.xcuserstate
+project.xcworkspace/
+
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
