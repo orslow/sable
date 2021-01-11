@@ -11,6 +11,7 @@
 		4C3EBD0625A589C00004CAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0525A589C00004CAA7 /* ViewController.swift */; };
 		4C3EBD0825A589C40004CAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0725A589C40004CAA7 /* Assets.xcassets */; };
 		4C3EBD0B25A589C40004CAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0925A589C40004CAA7 /* Main.storyboard */; };
+		4CD370B125AC1F5400AAD846 /* GlobalEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */; };
 		4CF4ECB325A8671C006BB95B /* KeyBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4ECB225A8671C006BB95B /* KeyBindings.swift */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +23,7 @@
 		4C3EBD0A25A589C40004CAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C3EBD0C25A589C40004CAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C3EBD0D25A589C40004CAA7 /* sable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sable.entitlements; sourceTree = "<group>"; };
+		4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventMonitor.swift; sourceTree = "<group>"; };
 		4CF4ECB225A8671C006BB95B /* KeyBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				4C3EBD0325A589C00004CAA7 /* AppDelegate.swift */,
+				4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */,
 				4C3EBD0525A589C00004CAA7 /* ViewController.swift */,
 				4CF4ECB225A8671C006BB95B /* KeyBindings.swift */,
 				4C3EBD0725A589C40004CAA7 /* Assets.xcassets */,
@@ -138,6 +141,7 @@
 			files = (
 				4CF4ECB325A8671C006BB95B /* KeyBindings.swift in Sources */,
 				4C3EBD0625A589C00004CAA7 /* ViewController.swift in Sources */,
+				4CD370B125AC1F5400AAD846 /* GlobalEventMonitor.swift in Sources */,
 				4C3EBD0425A589C00004CAA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

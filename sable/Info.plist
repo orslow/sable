@@ -27,7 +27,7 @@
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>LSUIElement</key>
-	<false/>
+	<true/>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>
