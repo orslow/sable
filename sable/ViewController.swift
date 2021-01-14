@@ -8,24 +8,44 @@
 
 import Cocoa
 
+let src = CGEventSource(stateID: .privateState)
+let loc = CGEventTapLocation.cghidEventTap
+
+let EscKeyDown = CGEvent(keyboardEventSource: src, virtualKey: 0x35, keyDown: true)
+let EscKeyUp = CGEvent(keyboardEventSource: src, virtualKey: 0x35, keyDown: false)
+
 class ViewController: NSViewController {
     
     var upEventHandler: GlobalEventMonitor?
     var downEventHandler: GlobalEventMonitor?
     var dragEventHandler: GlobalEventMonitor?
     var isBrowser: Bool = false
+    var isGesture: Bool = false
+    
+    override func viewDidDisappear() {
+        updateGlobalShortcutWithoutEvent()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if Storage.fileExists("globalKeybind.json", in: .documents) {
+            let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self)
+            updateKeybindButton(globalKeybinds)
+        }
+
         downEventHandler = GlobalEventMonitor(mask: .rightMouseDown, handler: {(mouseEvent: NSEvent?) in
             
             let appName = NSWorkspace.shared.frontmostApplication?.localizedName
-            
+
             if (appName?.contains("Chrome"))! || (appName?.contains("Safari"))! {
                 self.isBrowser=true
                 // print("BROWSER")
             }
+
             let position = mouseEvent?.locationInWindow
+            // print(position!.y)
+            
             self.globalRightMouseDown(x: position!.x, y: position!.y)
         })
 
@@ -37,9 +57,10 @@ class ViewController: NSViewController {
         })
 
         upEventHandler = GlobalEventMonitor(mask: .rightMouseUp, handler: {(mouseEvent: NSEvent?) in
-            if self.isBrowser {
+            if self.isGesture {
                 self.globalRightMouseUp()
             }
+            self.isGesture=false
             self.isBrowser=false
         })
         
@@ -49,6 +70,79 @@ class ViewController: NSViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    func updateGlobalShortcutWithoutEvent() {
+        let newGlobalKeybind = KeybindPreferences.init(
+            left: leftButton.indexOfSelectedItem,
+            right: rightButton.indexOfSelectedItem,
+            up: upButton.indexOfSelectedItem,
+            down: downButton.indexOfSelectedItem,
+            u: uButton.indexOfSelectedItem,
+            i: iButton.indexOfSelectedItem,
+            k: kButton.indexOfSelectedItem,
+            j: jButton.indexOfSelectedItem,
+            down_right: downRightButton.indexOfSelectedItem,
+            right_up: rightUpButton.indexOfSelectedItem,
+            up_left: upLeftButton.indexOfSelectedItem,
+            left_down: leftDownButton.indexOfSelectedItem,
+            up_right: upRightButton.indexOfSelectedItem,
+            right_down: rightDownButton.indexOfSelectedItem,
+            down_left: downLeftButton.indexOfSelectedItem,
+            left_up: leftUpButton.indexOfSelectedItem,
+            characters: "nothing"
+        )
+
+        Storage.store(newGlobalKeybind, to: .documents, as: "globalKeybind.json")
+    }
+
+    /*
+    func updateGlobalShortcut(_ event : NSEvent) {
+        if let characters = event.charactersIgnoringModifiers {
+            let newGlobalKeybind = KeybindPreferences.init(
+                left: leftButton.indexOfSelectedItem,
+                right: rightButton.indexOfSelectedItem,
+                up: upButton.indexOfSelectedItem,
+                down: downButton.indexOfSelectedItem,
+                u: uButton.indexOfSelectedItem,
+                i: iButton.indexOfSelectedItem,
+                k: kButton.indexOfSelectedItem,
+                j: jButton.indexOfSelectedItem,
+                down_right: downRightButton.indexOfSelectedItem,
+                right_up: rightUpButton.indexOfSelectedItem,
+                up_left: upLeftButton.indexOfSelectedItem,
+                left_down: leftDownButton.indexOfSelectedItem,
+                up_right: upRightButton.indexOfSelectedItem,
+                right_down: rightDownButton.indexOfSelectedItem,
+                down_left: downLeftButton.indexOfSelectedItem,
+                left_up: leftUpButton.indexOfSelectedItem,
+                characters: characters
+            )
+            
+            Storage.store(newGlobalKeybind, to: .documents, as: "globalKeybind.json")
+        }
+    }
+    */
+    
+    // Set the shortcut button to show the keys to press
+    func updateKeybindButton(_ KeybindPreference : KeybindPreferences) {
+        leftButton.selectItem(at: KeybindPreference.left)
+        rightButton.selectItem(at: KeybindPreference.right)
+        upButton.selectItem(at: KeybindPreference.up)
+        downButton.selectItem(at: KeybindPreference.down)
+        uButton.selectItem(at: KeybindPreference.u)
+        iButton.selectItem(at: KeybindPreference.i)
+        kButton.selectItem(at: KeybindPreference.k)
+        jButton.selectItem(at: KeybindPreference.j)
+        downRightButton.selectItem(at: KeybindPreference.down_right)
+        rightUpButton.selectItem(at: KeybindPreference.right_up)
+        upLeftButton.selectItem(at: KeybindPreference.up_left)
+        leftDownButton.selectItem(at: KeybindPreference.left_down)
+        upRightButton.selectItem(at: KeybindPreference.up_right)
+        rightDownButton.selectItem(at: KeybindPreference.right_down)
+        downLeftButton.selectItem(at: KeybindPreference.down_left)
+        leftUpButton.selectItem(at: KeybindPreference.left_up)
+    }
+
 
     override var representedObject: Any? {
         didSet {
@@ -86,6 +180,13 @@ class ViewController: NSViewController {
     */
     
     func globalRightMouseDragged(x:CGFloat, y:CGFloat) {
+        
+        if abs(x_movement)+abs(y_movement) > 10 {
+            isGesture=true
+            EscKeyDown?.post(tap: loc)
+            EscKeyUp?.post(tap: loc)
+        }
+
         x_movement += x - current_x
         y_movement += y - current_y
         current_x = x
@@ -110,6 +211,12 @@ class ViewController: NSViewController {
         motionInterpreter()
         (x_movement, y_movement) = (0, 0)
         detected=0
+        
+        let seconds = 0.3
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            EscKeyDown?.post(tap: loc)
+            EscKeyUp?.post(tap: loc)
+        }
     }
 
     func gestureRecorder(xd: CGFloat, yd: CGFloat) {
@@ -226,5 +333,4 @@ class ViewController: NSViewController {
             break
         }
     }
-    
 }

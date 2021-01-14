@@ -10,12 +10,10 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
+
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
 
     let action: KeyBindings = KeyBindings()
-    
-    let vc: ViewController = ViewController()
 
     var upEventHandler: GlobalEventMonitor?
     var downEventHandler: GlobalEventMonitor?
