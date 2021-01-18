@@ -1509,6 +1509,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="MainView" destination="m2S-Jp-Qdl" id="8Pg-gq-6sG"/>
                         <outlet property="downButton" destination="pg8-v7-eIi" id="kQf-Tn-Yv4"/>
                         <outlet property="downLeftButton" destination="HIQ-QH-hcT" id="AC4-EM-YTL"/>
                         <outlet property="downRightButton" destination="0Nb-Q6-Pc6" id="faa-Ih-DbT"/>
@@ -1529,7 +1530,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252" y="727"/>
+            <point key="canvasLocation" x="-252.5" y="727"/>
         </scene>
     </scenes>
     <resources>

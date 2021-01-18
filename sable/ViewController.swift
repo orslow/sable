@@ -8,35 +8,61 @@
 
 import Cocoa
 
-let src = CGEventSource(stateID: .privateState)
-let loc = CGEventTapLocation.cghidEventTap
-
-let EscKeyDown = CGEvent(keyboardEventSource: src, virtualKey: 0x35, keyDown: true)
-let EscKeyUp = CGEvent(keyboardEventSource: src, virtualKey: 0x35, keyDown: false)
+weak var vc = ViewController()
 
 class ViewController: NSViewController {
     
+    let delegate = AppDelegate()
+
     var upEventHandler: GlobalEventMonitor?
     var downEventHandler: GlobalEventMonitor?
     var dragEventHandler: GlobalEventMonitor?
     var isBrowser: Bool = false
     var isGesture: Bool = false
+
+    @IBOutlet var MainView: NSView!
     
     override func viewDidDisappear() {
         updateGlobalShortcutWithoutEvent()
     }
+    
 
     override func viewDidLoad() {
-        super.viewDidLoad()
 
+        super.viewDidLoad()
+        vc = self
+
+        /*
+        rMouse?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x00)
+        anyKeyDown?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x0)
+        anyKeyUp?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x0)
+         */
+        
         if Storage.fileExists("globalKeybind.json", in: .documents) {
             let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self)
             updateKeybindButton(globalKeybinds)
         }
 
+        /*
         downEventHandler = GlobalEventMonitor(mask: .rightMouseDown, handler: {(mouseEvent: NSEvent?) in
-            
+
             let appName = NSWorkspace.shared.frontmostApplication?.localizedName
+            
+            /*
+            NSApplication.shared.orderedWindows.forEach({ (window) in
+                NSApplication.shared.activate(ignoringOtherApps: true)
+                window.makeKeyAndOrderFront(self)
+                window.makeKey()
+                /*
+                 if let mainWindow = window as? MainWindow {
+                 print("HERE?")
+                 NSApplication.shared.activate(ignoringOtherApps: true)
+                 mainWindow.makeKeyAndOrderFront(self)
+                 mainWindow.makeKey()
+                 }
+                 */
+            })
+            */
 
             if (appName?.contains("Chrome"))! || (appName?.contains("Safari"))! {
                 self.isBrowser=true
@@ -67,6 +93,7 @@ class ViewController: NSViewController {
         downEventHandler?.start()
         dragEventHandler?.start()
         upEventHandler?.start()
+         */
 
         // Do any additional setup after loading the view.
     }
@@ -164,8 +191,15 @@ class ViewController: NSViewController {
     */
     
     func globalRightMouseDown(x:CGFloat, y:CGFloat) {
-        current_x=x
-        current_y=y
+        current_x = x
+        current_y = y
+    }
+    
+    func globalRightMouseDown2(with event: CGEvent) {
+        let pos = event.location.self
+        current_x = pos.x
+        current_y = pos.y
+        // print(current_x, current_y)
     }
 
     /*
@@ -180,15 +214,33 @@ class ViewController: NSViewController {
     */
     
     func globalRightMouseDragged(x:CGFloat, y:CGFloat) {
-        
+
         if abs(x_movement)+abs(y_movement) > 10 {
             isGesture=true
-            EscKeyDown?.post(tap: loc)
-            EscKeyUp?.post(tap: loc)
+            // EscKeyDown?.post(tap: loc)
+            // EscKeyUp?.post(tap: loc)
         }
 
         x_movement += x - current_x
         y_movement += y - current_y
+        current_x = x
+        current_y = y
+        gestureRecorder(xd: x_movement, yd: y_movement)
+    }
+    
+    func globalRightMouseDragged2(with event: CGEvent) {
+        let pos = event.location
+        let x = pos.x
+        let y = pos.y
+
+        if abs(x_movement)+abs(y_movement) > 10 {
+            isGesture=true
+            // EscKeyDown?.post(tap: loc)
+            // EscKeyUp?.post(tap: loc)
+        }
+        
+        x_movement += x - current_x
+        y_movement -= y - current_y // reverse on CGEvent
         current_x = x
         current_y = y
         gestureRecorder(xd: x_movement, yd: y_movement)
@@ -212,11 +264,13 @@ class ViewController: NSViewController {
         (x_movement, y_movement) = (0, 0)
         detected=0
         
+        /*
         let seconds = 0.3
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             EscKeyDown?.post(tap: loc)
             EscKeyUp?.post(tap: loc)
         }
+        */
     }
 
     func gestureRecorder(xd: CGFloat, yd: CGFloat) {
@@ -249,6 +303,23 @@ class ViewController: NSViewController {
             detected |= 0b0000001
         }
     }
+    @IBOutlet weak var leftButton: NSPopUpButton!
+    @IBOutlet weak var rightButton: NSPopUpButton!
+    @IBOutlet weak var upButton: NSPopUpButton!
+    @IBOutlet weak var downButton: NSPopUpButton!
+    @IBOutlet weak var uButton: NSPopUpButton!
+    @IBOutlet weak var iButton: NSPopUpButton!
+    @IBOutlet weak var kButton: NSPopUpButton!
+    @IBOutlet weak var jButton: NSPopUpButton!
+    @IBOutlet weak var downRightButton: NSPopUpButton!
+    @IBOutlet weak var rightUpButton: NSPopUpButton!
+    @IBOutlet weak var upLeftButton: NSPopUpButton!
+    @IBOutlet weak var leftDownButton: NSPopUpButton!
+    @IBOutlet weak var upRightButton: NSPopUpButton!
+    @IBOutlet weak var rightDownButton: NSPopUpButton!
+    @IBOutlet weak var downLeftButton: NSPopUpButton!
+    @IBOutlet weak var leftUpButton: NSPopUpButton!
+    
     
     func motionInterpreter() {
         switch detected {
@@ -289,23 +360,7 @@ class ViewController: NSViewController {
         }
     }
     
-    @IBOutlet weak var leftButton: NSPopUpButton!
-    @IBOutlet weak var rightButton: NSPopUpButton!
-    @IBOutlet weak var upButton: NSPopUpButton!
-    @IBOutlet weak var downButton: NSPopUpButton!
-    @IBOutlet weak var uButton: NSPopUpButton!
-    @IBOutlet weak var iButton: NSPopUpButton!
-    @IBOutlet weak var kButton: NSPopUpButton!
-    @IBOutlet weak var jButton: NSPopUpButton!
-    @IBOutlet weak var downRightButton: NSPopUpButton!
-    @IBOutlet weak var rightUpButton: NSPopUpButton!
-    @IBOutlet weak var upLeftButton: NSPopUpButton!
-    @IBOutlet weak var leftDownButton: NSPopUpButton!
-    @IBOutlet weak var upRightButton: NSPopUpButton!
-    @IBOutlet weak var rightDownButton: NSPopUpButton!
-    @IBOutlet weak var downLeftButton: NSPopUpButton!
-    @IBOutlet weak var leftUpButton: NSPopUpButton!
-    
+
     
     // No action, Back, Forward, Scroll to top, Scroll to bottom, Close tab, Reopen closed tab, Move to left tab, Move to right tab, Reload
     let action: KeyBindings = KeyBindings()
