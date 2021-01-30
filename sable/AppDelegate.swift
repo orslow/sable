@@ -8,8 +8,6 @@
 
 import Cocoa
 
-
-
 func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, refcon: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
 
     let appName = NSWorkspace.shared.frontmostApplication?.localizedName
@@ -21,40 +19,20 @@ func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent
             if keyCode==2 {
                 return Unmanaged.passRetained(event)
             }
-            vc?.globalRightMouseDown2(with: event)
+            vc?.globalRightMouseDown(with: event)
         } else if [.rightMouseDragged].contains(type) {
-            vc?.globalRightMouseDragged2(with: event)
+            vc?.globalRightMouseDragged(with: event)
         } else if [.rightMouseUp].contains(type) {
             let keyCode = event.getIntegerValueField(.mouseEventClickState)
             if keyCode==2 {
                 return Unmanaged.passRetained(event)
             }
-            vc?.globalRightMouseUp()
+            vc?.globalRightMouseUp(with: event)
         }
         return nil
-        // return Unmanaged.passRetained(event)
     } else {
         return Unmanaged.passRetained(event)
     }
-
-    /*
-    // if [.rightMouseDown , .rightMouseUp].contains(type) {
-    if [.rightMouseDown].contains(type) {
-        let keyCode = event.getIntegerValueField(.mouseEventClickState)
-        print("With", keyCode)
-        if keyCode==2 {
-            event.setIntegerValueField(.mouseEventClickState, value: 1)
-            return Unmanaged.passRetained(event)
-        }
-        vc?.globalRightMouseDown2(with: event)
-    } else if [.rightMouseDragged].contains(type) {
-        vc?.globalRightMouseDragged2(with: event)
-    } else {
-        vc?.globalRightMouseUp()
-    }
-    return nil
-    // return Unmanaged.passRetained(event)
-    */
 }
 
 @NSApplicationMain
@@ -89,21 +67,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         CFRunLoopRun()
     }
     
-    @objc func printQuote(_ sender: Any?) {
-        let quoteText = "App icon clicked"
-        let quoteAuthor = "Alarm"
-        
-        print("\(quoteText) - \(quoteAuthor)")
-    }
-
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
     func constructMenu() {
         let menu = NSMenu()
-        
-        // menu.addItem(NSMenuItem(title: "Print", action: #selector(AppDelegate.printQuote(_:)), keyEquivalent: "P"))
         
         menu.addItem(NSMenuItem(title: "Preferences", action: #selector(AppDelegate.getPreferences(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem.separator())
@@ -113,20 +82,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func getPreferences(_ sender: Any?) {
-        NSApplication.shared.orderedWindows.forEach({ (window) in
-            NSApplication.shared.activate(ignoringOtherApps: true)
-            window.makeKeyAndOrderFront(self)
-            window.makeKey()
-            /*
-            if let mainWindow = window as? MainWindow {
-                print("HERE?")
-                NSApplication.shared.activate(ignoringOtherApps: true)
-                mainWindow.makeKeyAndOrderFront(self)
-                mainWindow.makeKey()
-            }
-            */
-        })
-
+        let prefWindow = NSApplication.shared.windows.last
+        
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        prefWindow?.makeKeyAndOrderFront(self)
+        prefWindow?.makeKey()
     }
     
 }

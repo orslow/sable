@@ -20,119 +20,127 @@ class KeyBindings {
     let w                         : UInt16 = 0x0D
     let t                         : UInt16 = 0x11
     let r                         : UInt16 = 0x0F
+    
+    var mousePosition: CGPoint!
+    var leftMouseDown: CGEvent!
+    var leftMouseUp: CGEvent!
+    
+    let pageLeftBracketKeyDownown: CGEvent!
+    let pageLeftBracketKeyUpp: CGEvent!
+    let pageRightBracketKeyDownown: CGEvent!
+    let pageRightBracketKeyUpp: CGEvent!
+    
+    let tabLeftBracketKeyDownown: CGEvent!
+    let tabLeftBracketKeyUpp: CGEvent!
+    let tabRightBracketKeyDownown: CGEvent!
+    let tabRightBracketKeyUpp: CGEvent!
+
+    let upArrowKeyDownown: CGEvent!
+    let upArrowKeyUpp: CGEvent!
+    let downArrowKeyDownown: CGEvent!
+    let downArrowKeyUpp: CGEvent!
+    let wKeyDown: CGEvent!
+    let wKeyUp: CGEvent!
+    let tKeyDown: CGEvent!
+    let tKeyUp: CGEvent!
+    let rKeyDown: CGEvent!
+    let rKeyUp: CGEvent!
+
+    init() {
+        pageLeftBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
+        pageLeftBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
+        pageLeftBracketKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        pageRightBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
+        pageRightBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
+        pageRightBracketKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        upArrowKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: true)
+        upArrowKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: false)
+        upArrowKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        downArrowKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: true)
+        downArrowKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: false)
+        downArrowKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        wKeyDown = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: true)
+        wKeyUp = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: false)
+        wKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        tKeyDown = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: true)
+        tKeyUp = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: false)
+        tKeyDown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
+        
+        tabLeftBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
+        tabLeftBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
+        tabLeftBracketKeyDownown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
+        
+        tabRightBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
+        tabRightBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
+        tabRightBracketKeyDownown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
+        
+        rKeyDown = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: true)
+        rKeyUp = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: false)
+        rKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+    }
 
     // back, forward, scrollToTop, scrollToBottom, closeTab, reopenClosedTab, reload, leftTab, rightTab
+    
+    func rightClick(pos: CGPoint) {
+        leftMouseDown = CGEvent(mouseEventSource: nil, mouseType: .leftMouseDown,
+                                mouseCursorPosition: pos, mouseButton: .left)
+        leftMouseUp = CGEvent(mouseEventSource: nil, mouseType: .leftMouseUp,
+                                mouseCursorPosition: pos, mouseButton: .left)
+        
+        leftMouseDown?.flags = CGEventFlags.maskControl
+        leftMouseUp?.flags = CGEventFlags.maskControl
+        
+        leftMouseDown?.post(tap: loc)
+        leftMouseUp?.post(tap: loc)
+    }
 
     func back() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        pageLeftBracketKeyDownown?.post(tap: loc)
+        pageLeftBracketKeyUpp?.post(tap: loc)
     }
     
     func forward() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        pageRightBracketKeyDownown?.post(tap: loc)
+        pageRightBracketKeyUpp?.post(tap: loc)
     }
     
     func scrollToTop() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        upArrowKeyDownown?.post(tap: loc)
+        upArrowKeyUpp?.post(tap: loc)
     }
     
     func scrollToBottom() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        downArrowKeyDownown?.post(tap: loc)
+        downArrowKeyUpp?.post(tap: loc)
     }
 
     func closeTab() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        wKeyDown?.post(tap: loc)
+        wKeyUp?.post(tap: loc)
     }
 
     func reopenClosedTab() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: false)
-        
-        keyd?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ]// with cmd+shift+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        tKeyDown?.post(tap: loc)
+        tKeyUp?.post(tap: loc)
     }
     
     func leftTab() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
-        
-        keyd?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        tabLeftBracketKeyDownown?.post(tap: loc)
+        tabLeftBracketKeyUpp?.post(tap: loc)
     }
     
     func rightTab() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
-        
-        keyd?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        tabRightBracketKeyDownown?.post(tap: loc)
+        tabRightBracketKeyUpp?.post(tap: loc)
     }
     
     func reload() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: false)
-        
-        keyd?.flags = CGEventFlags.maskCommand // with cmd+
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
+        rKeyDown?.post(tap: loc)
+        rKeyUp?.post(tap: loc)
     }
-    
-    /*
-    func screenShot() {
-        let frd = CGEvent(keyboardEventSource: src, virtualKey: 0x15, keyDown: true)
-        let fru = CGEvent(keyboardEventSource: src, virtualKey: 0x15, keyDown: false)
-        
-        frd?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift]
-        // var flagRaw : UInt64 = 0
-        // flagRaw = CGEventFlags.maskCommand.rawValue
-        // frd?.flags = CGEventFlags(rawValue: CGEventFlags.maskShift.rawValue | flagRaw)
-        
-        frd?.post(tap: loc)
-        fru?.post(tap: loc)
-    }
-    
-    func printTest() {
-        let keyd = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(upArrow), keyDown: true)
-        let keyu = CGEvent(keyboardEventSource: src, virtualKey: CGKeyCode(upArrow), keyDown: false)
-        
-        keyd?.post(tap: loc)
-        keyu?.post(tap: loc)
-    }
-     */
 }

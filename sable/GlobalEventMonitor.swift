@@ -25,7 +25,6 @@ public class GlobalEventMonitor {
     }
     
     public func start() {
-        // monitor = NSEvent.addGlobalMonitorForEventsMatchingMask(mask, handler: handler)
         monitor = NSEvent.addGlobalMonitorForEvents(matching: mask, handler: handler) as AnyObject?
     }
     

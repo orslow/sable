@@ -12,93 +12,24 @@ weak var vc = ViewController()
 
 class ViewController: NSViewController {
     
-    let delegate = AppDelegate()
-
-    var upEventHandler: GlobalEventMonitor?
-    var downEventHandler: GlobalEventMonitor?
-    var dragEventHandler: GlobalEventMonitor?
-    var isBrowser: Bool = false
-    var isGesture: Bool = false
-
     @IBOutlet var MainView: NSView!
     
     override func viewDidDisappear() {
-        updateGlobalShortcutWithoutEvent()
+        updateGlobalShortcutOnJson()
     }
-    
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
         vc = self
 
-        /*
-        rMouse?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x00)
-        anyKeyDown?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x0)
-        anyKeyUp?.setIntegerValueField(CGEventField.eventSourceUserData, value: 0x0)
-         */
-        
         if Storage.fileExists("globalKeybind.json", in: .documents) {
             let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self)
-            updateKeybindButton(globalKeybinds)
+            updateKeybindButtonFromJson(globalKeybinds)
         }
-
-        /*
-        downEventHandler = GlobalEventMonitor(mask: .rightMouseDown, handler: {(mouseEvent: NSEvent?) in
-
-            let appName = NSWorkspace.shared.frontmostApplication?.localizedName
-            
-            /*
-            NSApplication.shared.orderedWindows.forEach({ (window) in
-                NSApplication.shared.activate(ignoringOtherApps: true)
-                window.makeKeyAndOrderFront(self)
-                window.makeKey()
-                /*
-                 if let mainWindow = window as? MainWindow {
-                 print("HERE?")
-                 NSApplication.shared.activate(ignoringOtherApps: true)
-                 mainWindow.makeKeyAndOrderFront(self)
-                 mainWindow.makeKey()
-                 }
-                 */
-            })
-            */
-
-            if (appName?.contains("Chrome"))! || (appName?.contains("Safari"))! {
-                self.isBrowser=true
-                // print("BROWSER")
-            }
-
-            let position = mouseEvent?.locationInWindow
-            // print(position!.y)
-            
-            self.globalRightMouseDown(x: position!.x, y: position!.y)
-        })
-
-        dragEventHandler = GlobalEventMonitor(mask: .rightMouseDragged, handler: {(mouseEvent: NSEvent?) in
-            if self.isBrowser {
-                let position = mouseEvent?.locationInWindow
-                self.globalRightMouseDragged(x: position!.x, y: position!.y)
-            }
-        })
-
-        upEventHandler = GlobalEventMonitor(mask: .rightMouseUp, handler: {(mouseEvent: NSEvent?) in
-            if self.isGesture {
-                self.globalRightMouseUp()
-            }
-            self.isGesture=false
-            self.isBrowser=false
-        })
-        
-        downEventHandler?.start()
-        dragEventHandler?.start()
-        upEventHandler?.start()
-         */
-
-        // Do any additional setup after loading the view.
     }
     
-    func updateGlobalShortcutWithoutEvent() {
+    // update keybinding when view disappear
+    func updateGlobalShortcutOnJson() {
         let newGlobalKeybind = KeybindPreferences.init(
             left: leftButton.indexOfSelectedItem,
             right: rightButton.indexOfSelectedItem,
@@ -122,36 +53,8 @@ class ViewController: NSViewController {
         Storage.store(newGlobalKeybind, to: .documents, as: "globalKeybind.json")
     }
 
-    /*
-    func updateGlobalShortcut(_ event : NSEvent) {
-        if let characters = event.charactersIgnoringModifiers {
-            let newGlobalKeybind = KeybindPreferences.init(
-                left: leftButton.indexOfSelectedItem,
-                right: rightButton.indexOfSelectedItem,
-                up: upButton.indexOfSelectedItem,
-                down: downButton.indexOfSelectedItem,
-                u: uButton.indexOfSelectedItem,
-                i: iButton.indexOfSelectedItem,
-                k: kButton.indexOfSelectedItem,
-                j: jButton.indexOfSelectedItem,
-                down_right: downRightButton.indexOfSelectedItem,
-                right_up: rightUpButton.indexOfSelectedItem,
-                up_left: upLeftButton.indexOfSelectedItem,
-                left_down: leftDownButton.indexOfSelectedItem,
-                up_right: upRightButton.indexOfSelectedItem,
-                right_down: rightDownButton.indexOfSelectedItem,
-                down_left: downLeftButton.indexOfSelectedItem,
-                left_up: leftUpButton.indexOfSelectedItem,
-                characters: characters
-            )
-            
-            Storage.store(newGlobalKeybind, to: .documents, as: "globalKeybind.json")
-        }
-    }
-    */
-    
     // Set the shortcut button to show the keys to press
-    func updateKeybindButton(_ KeybindPreference : KeybindPreferences) {
+    func updateKeybindButtonFromJson(_ KeybindPreference : KeybindPreferences) {
         leftButton.selectItem(at: KeybindPreference.left)
         rightButton.selectItem(at: KeybindPreference.right)
         upButton.selectItem(at: KeybindPreference.up)
@@ -170,7 +73,6 @@ class ViewController: NSViewController {
         leftUpButton.selectItem(at: KeybindPreference.left_up)
     }
 
-
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
@@ -182,63 +84,16 @@ class ViewController: NSViewController {
     var current_x: CGFloat = 0.0, current_y: CGFloat = 0.0, x_movement: CGFloat = 0.0, y_movement: CGFloat = 0.0
     var detected = 0b00000000 // starts from 12 o'clock
     
-    /*
-    override func rightMouseDown(with event: NSEvent) {
-        let position = event.locationInWindow.self
-        current_x=position.x
-        current_y=position.y
-    }
-    */
-    
-    func globalRightMouseDown(x:CGFloat, y:CGFloat) {
-        current_x = x
-        current_y = y
-    }
-    
-    func globalRightMouseDown2(with event: CGEvent) {
-        let pos = event.location.self
-        current_x = pos.x
-        current_y = pos.y
+    func globalRightMouseDown(with event: CGEvent) {
+        current_x = event.location.x
+        current_y = event.location.y
         // print(current_x, current_y)
     }
 
-    /*
-    override func rightMouseDragged(with event: NSEvent) {
-        let position = event.locationInWindow.self
-        x_movement += position.x - current_x
-        y_movement += position.y - current_y
-        current_x = position.x
-        current_y = position.y
-        gestureRecorder(xd: x_movement, yd: y_movement)
-    }
-    */
-    
-    func globalRightMouseDragged(x:CGFloat, y:CGFloat) {
+    func globalRightMouseDragged(with event: CGEvent) {
+        let x = event.location.x
+        let y = event.location.y
 
-        if abs(x_movement)+abs(y_movement) > 10 {
-            isGesture=true
-            // EscKeyDown?.post(tap: loc)
-            // EscKeyUp?.post(tap: loc)
-        }
-
-        x_movement += x - current_x
-        y_movement += y - current_y
-        current_x = x
-        current_y = y
-        gestureRecorder(xd: x_movement, yd: y_movement)
-    }
-    
-    func globalRightMouseDragged2(with event: CGEvent) {
-        let pos = event.location
-        let x = pos.x
-        let y = pos.y
-
-        if abs(x_movement)+abs(y_movement) > 10 {
-            isGesture=true
-            // EscKeyDown?.post(tap: loc)
-            // EscKeyUp?.post(tap: loc)
-        }
-        
         x_movement += x - current_x
         y_movement -= y - current_y // reverse on CGEvent
         current_x = x
@@ -246,20 +101,15 @@ class ViewController: NSViewController {
         gestureRecorder(xd: x_movement, yd: y_movement)
     }
     
-    let mrd: CGFloat = 50.0// minimum recognition distance (최소 인식 거리)
-    let angle: CGFloat = 0.25
-
-    /*
-    override func rightMouseUp(with event: NSEvent) {
+    func globalRightMouseUp(with event: CGEvent) {
         print("0b"+String(detected, radix: 2))
-        motionInterpreter()
-        (x_movement, y_movement) = (0, 0)
-        detected=0
-    }
-    */
-
-    func globalRightMouseUp() {
-        print("0b"+String(detected, radix: 2))
+        
+        // just right click without any gesture
+        if detected==0 {
+            action.rightClick(pos: event.location)
+            return
+        }
+        
         motionInterpreter()
         (x_movement, y_movement) = (0, 0)
         detected=0
@@ -273,6 +123,9 @@ class ViewController: NSViewController {
         */
     }
 
+    let mrd: CGFloat = 50.0 // minimum recognition distance (최소 인식 거리)
+    let angle: CGFloat = 0.25 // 대각선 인식 기준 각도
+    
     func gestureRecorder(xd: CGFloat, yd: CGFloat) {
         if yd > mrd && abs(xd) / yd < angle { // 12 o'clock
             detected |= 0b10000000
@@ -359,8 +212,6 @@ class ViewController: NSViewController {
             break
         }
     }
-    
-
     
     // No action, Back, Forward, Scroll to top, Scroll to bottom, Close tab, Reopen closed tab, Move to left tab, Move to right tab, Reload
     let action: KeyBindings = KeyBindings()
