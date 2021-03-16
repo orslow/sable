@@ -6,27 +6,27 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		LLjEKVetI56mqbhaZMVrzNV1R6A=
+		YwoNl361RHkHGyQkLuqTabhKxfw=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		DnB7oRXYTNPs3PtJ7cp5b94/UJ0=
+		Sx1IsYSELsJcV7QTwuV8mCg1lxM=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		7HZbjUSPYL0WcQefwunwSHh3Y/4=
+		iJotg+O1PohIpwG6yn8CZW95o4A=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		njjVsg3zFmQiFtQXV7/r3DVtZKY=
+		OaG9FqFrTsVcNii1GH11POsIPb8=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/QuotesViewController.nib</key>
 		<data>
-		khx1dNmew8VPUQuXfrnyrqWurjk=
+		Xd3R/AhNpEOAk2ZXz4x6nszi1fQ=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		L3yAJ3463Hps3KKKrH4S/yzG++U=
+		nsof5h3qizYN57okOKuSG7Z33Vg=
 		</data>
 		<key>Resources/libswiftRemoteMirror.dylib</key>
 		<data>
@@ -43,6 +43,24 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"c5cebe08869ea96c7852fdac72ae4aafcc669903" or cdhash H"3eb9da43fe1297e0cd4cd95c85cd20a0afcf0cb9"</string>
+		</dict>
+		<key>Frameworks/libswiftCloudKit.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			BPfRh1XTuu+XQ1hNmzAGvCeReJU=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"713aea3b74ca42ea6e3828f7af41f56e3b5b324b" or cdhash H"04f7d18755d3baef9743584d9b3006bc27917895"</string>
+		</dict>
+		<key>Frameworks/libswiftContacts.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			+sO4vR6XSHoTC6a+ZTeThF+6hQA=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"bb5efcb259c49113ee593ccd039f7b60065809cb" or cdhash H"fac3b8bd1e97487a130ba6be653793845fba8500"</string>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<dict>
@@ -88,6 +106,15 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"7659a4d6dff14713703bb11fd1e9c3b89684dd2c" or cdhash H"64b4e48318b4374d4c8b883a023ceaaa9515f41e"</string>
+		</dict>
+		<key>Frameworks/libswiftCoreLocation.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			M5mo/WfBiIn91wDeiNdED5cm1Sg=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"b11de5f1cc0f14b0a011b045994ab5b61ca81074" or cdhash H"3399a8fd67c18889fdd700de88d7440f9726d528"</string>
 		</dict>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<dict>
@@ -183,42 +210,42 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qRxwdUulfy4I2seu92RPgvFkmxKK24B9j4epmmyYbag=
+			JnEFS/cnEIgWVkH9klEMtbZzTKUcwS/hRp33EoT5lQc=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JXHDYuUeoADKoTIzYjs4CdyqhrIlWp7Y/rVnd5og9MM=
+			Y0wHMa4ZI084UWtZlnToFb0x8YL7nZjoAsUyqVyWOjA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tl/IZ2UKxSt8T7+JazF+6HPQVR7aUBhgjF+ZclsQIIA=
+			8Rl3441idpppg3wFtxP+7d68BmxWzNrXTz/+dbuF/ic=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I0grgcqT3hYZoeADIfJldCQhmF61s5aLa4RZIio4coY=
+			j6jKKMUPcsHhakPK95JU4wTr5cRdpdGpLQFu6IhyoOs=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/QuotesViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			FrmoiKFvPeEViPBiqq/ZSQGpGZISaw7zWDWToJRWwXM=
+			ZWBXzaY/EhZK5BA03cyfoKDFGxV769Wyo/x8mD8dyU0=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DZioADO2shlrLvXP930qYDDlrIRTBCPHpUMdJCGL8J8=
+			sMicDpser6bkSmCxWpv8X0jCjQAYgdVR7ssYcHeujM4=
 			</data>
 		</dict>
 		<key>Resources/libswiftRemoteMirror.dylib</key>
