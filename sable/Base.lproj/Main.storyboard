@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -712,8 +713,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-Bs-Yfu" userLabel="menu1">
-                                <rect key="frame" x="50" y="304" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Forward" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" identifier="left" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="p8d-Qv-CVf" id="U4W-93-CFB">
+                                <rect key="frame" x="50" y="304" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" identifier="left" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="b6U-xC-SZ3" id="U4W-93-CFB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="zp8-Mj-F0W">
@@ -748,13 +749,19 @@
                                             <menuItem title="Reload" id="YCD-ml-C67" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="CQf-ga-r27" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="eA5-aH-MeZ" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-PV-jPg" userLabel="menu2">
-                                <rect key="frame" x="50" y="263" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="0oP-HH-Qn3" id="iHX-0e-pIR">
+                                <rect key="frame" x="50" y="263" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="j37-6g-Not" id="iHX-0e-pIR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="BOy-5Z-ati">
@@ -789,13 +796,19 @@
                                             <menuItem title="Reload" id="7Ue-c8-0QP" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="dcr-BQ-cJe" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="F65-0O-GR8" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-7K-qZw" userLabel="menu3">
-                                <rect key="frame" x="50" y="222" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Scroll to bottom" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="3HZ-8S-xv9" id="aJi-14-rVC">
+                                <rect key="frame" x="50" y="222" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="G6Y-hX-fIo" id="aJi-14-rVC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="krO-d7-WU0">
@@ -830,13 +843,19 @@
                                             <menuItem title="Reload" id="PXI-FG-K0F" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="9ok-Pz-vHe" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="pk7-NG-fH8" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pg8-v7-eIi" userLabel="menu4">
-                                <rect key="frame" x="50" y="181" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Scroll to top" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="6AM-gj-xtF" id="rcv-qa-ngQ">
+                                <rect key="frame" x="50" y="181" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="cbV-SM-xhB" id="rcv-qa-ngQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="U3f-Mp-hxe">
@@ -871,12 +890,18 @@
                                             <menuItem title="Reload" id="0nO-BO-iHh" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="7qQ-Vo-hxc" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="6Hd-3O-Um5" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-MJ-2ww" userLabel="menu5">
-                                <rect key="frame" x="50" y="140" width="151" height="25"/>
+                                <rect key="frame" x="50" y="140" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="UzL-bx-CFB" id="nwU-kU-bsp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -912,12 +937,18 @@
                                             <menuItem title="Reload" id="JTI-W2-knz" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="cia-8o-6Hp" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="kbR-jL-3Ns" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-NY-pIU" userLabel="menu6">
-                                <rect key="frame" x="50" y="99" width="151" height="25"/>
+                                <rect key="frame" x="50" y="99" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="zIs-Gs-wzh" id="Wkv-6U-z1c">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -953,13 +984,19 @@
                                             <menuItem title="Reload" id="EQj-rH-EfQ" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="f7k-lI-ccN" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="9Fm-Vw-Me5" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-tJ-fae" userLabel="menu7">
-                                <rect key="frame" x="50" y="58" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Move to left tab" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="PAL-zg-g0M" id="NYo-bF-L6q">
+                                <rect key="frame" x="50" y="58" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="PC6-Yq-Yap" id="NYo-bF-L6q">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="W2x-Mi-OI9">
@@ -994,13 +1031,19 @@
                                             <menuItem title="Reload" id="Xol-dP-Zn0" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new tab" id="sbv-Dh-hIM" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="mPv-nQ-nN4" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qj4-qQ-GPw" userLabel="menu8">
-                                <rect key="frame" x="50" y="17" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Move to right tab" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="LCZ-zX-xlW" id="eqa-xd-SQW">
+                                <rect key="frame" x="50" y="17" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="aLi-gp-FqM" id="eqa-xd-SQW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="uHv-EZ-Wug">
@@ -1033,6 +1076,12 @@
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Reload" id="Kse-hQ-Eut" userLabel="Reload">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="KV5-DF-Xjf" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="68c-M7-d0J" userLabel="Open a new window">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                         </items>
@@ -1080,8 +1129,8 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="j" id="qMb-UN-hUT"/>
                             </imageView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-Q6-Pc6" userLabel="menu9">
-                                <rect key="frame" x="280" y="304" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Close tab" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="B5x-40-aNh" id="oqF-x5-wFb">
+                                <rect key="frame" x="280" y="304" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="FPM-Ik-hpo" id="oqF-x5-wFb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="ifZ-bf-W6b">
@@ -1116,12 +1165,18 @@
                                             <menuItem title="Reload" id="M0y-T7-5RM" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="QDY-Cy-ymv" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="cO1-dp-uSR" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="67N-Pn-drU" userLabel="menu10">
-                                <rect key="frame" x="280" y="263" width="151" height="25"/>
+                                <rect key="frame" x="280" y="263" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Duq-Za-dVS" id="9cR-wr-2Hy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1157,12 +1212,18 @@
                                             <menuItem title="Reload" id="BK8-fd-tLZ" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="03s-4r-HLW" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="4aa-LV-sbr" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9R-8F-Mzs" userLabel="menu11">
-                                <rect key="frame" x="280" y="222" width="151" height="25"/>
+                                <rect key="frame" x="280" y="222" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="8Kp-Yb-iOU" id="LQ3-jg-zfI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1198,12 +1259,18 @@
                                             <menuItem title="Reload" id="hEO-E7-Eoa" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="tyz-zN-D16" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="6MN-xi-VYb" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4xN-fk-hdR" userLabel="menu12">
-                                <rect key="frame" x="280" y="181" width="151" height="25"/>
+                                <rect key="frame" x="280" y="181" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="V3l-TS-opq" id="Ghk-JW-6SQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1239,12 +1306,18 @@
                                             <menuItem title="Reload" id="rtj-TU-khS" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="lme-uh-Efg" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="7to-u2-iNo" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-MU-R27" userLabel="menu13">
-                                <rect key="frame" x="280" y="140" width="151" height="25"/>
+                                <rect key="frame" x="280" y="140" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="I3D-gg-UYS" id="N8s-qG-hKR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1280,13 +1353,19 @@
                                             <menuItem title="Reload" id="28w-Jd-qVb" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="RAG-Dq-kpe" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="uiw-a2-rOf" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="buc-EX-ARz" userLabel="menu14">
-                                <rect key="frame" x="280" y="99" width="151" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="Reopen closed tab" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="xnJ-DN-p8K" id="Ccd-AO-7bZ">
+                                <rect key="frame" x="280" y="99" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Bps-Is-bXc" id="Ccd-AO-7bZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                     <menu key="menu" id="Hp8-Mj-8U8">
@@ -1321,12 +1400,18 @@
                                             <menuItem title="Reload" id="TCu-sf-7C9" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="1P7-Jv-dZe" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="PI7-tW-xeJ" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-QH-hcT" userLabel="menu15">
-                                <rect key="frame" x="280" y="58" width="151" height="25"/>
+                                <rect key="frame" x="280" y="58" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="8hQ-Af-MzD" id="LUE-WR-LL1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1362,12 +1447,18 @@
                                             <menuItem title="Reload" id="2b4-iS-2t2" userLabel="Reload">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Open a new window" id="8Wr-cK-aBw" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="rrr-Ca-rsr" userLabel="Open a new tab">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
                                         </items>
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="54m-bC-hbh" userLabel="menu16">
-                                <rect key="frame" x="280" y="17" width="151" height="25"/>
+                                <rect key="frame" x="280" y="17" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="YpU-hZ-oAl" id="tqC-S8-y6U">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1401,6 +1492,12 @@
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Reload" id="c2H-88-WC9" userLabel="Reload">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new window" id="E1v-H1-njA" userLabel="Open a new window">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                            </menuItem>
+                                            <menuItem title="Open a new tab" id="dZA-9D-py0" userLabel="Open a new tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                         </items>

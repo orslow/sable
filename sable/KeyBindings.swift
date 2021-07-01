@@ -21,6 +21,9 @@ class KeyBindings {
     let t                         : UInt16 = 0x11
     let r                         : UInt16 = 0x0F
     
+    // 20210701 added
+    let n                         : UInt16 = 0x2D
+    
     var mousePosition: CGPoint!
     var leftMouseDown: CGEvent!
     var leftMouseUp: CGEvent!
@@ -45,6 +48,12 @@ class KeyBindings {
     let tKeyUp: CGEvent!
     let rKeyDown: CGEvent!
     let rKeyUp: CGEvent!
+    
+    // 20210701
+    let nKeyDown: CGEvent!
+    let nKeyUp: CGEvent!
+    let ntKeyUp: CGEvent!
+    let ntKeyDown: CGEvent!
 
     init() {
         pageLeftBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
@@ -82,9 +91,20 @@ class KeyBindings {
         rKeyDown = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: true)
         rKeyUp = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: false)
         rKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        // new window
+        nKeyDown = CGEvent(keyboardEventSource: src, virtualKey: n, keyDown: true)
+        nKeyUp = CGEvent(keyboardEventSource: src, virtualKey: n, keyDown: false)
+        nKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+        
+        // new tab
+        ntKeyDown = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: true)
+        ntKeyUp = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: false)
+        ntKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+
     }
 
-    // back, forward, scrollToTop, scrollToBottom, closeTab, reopenClosedTab, reload, leftTab, rightTab
+    // back, forward, scrollToTop, scrollToBottom, closeTab, reopenClosedTab, reload, leftTab, rightTab, newWindow, newTab
     
     func rightClick(pos: CGPoint) {
         leftMouseDown = CGEvent(mouseEventSource: nil, mouseType: .leftMouseDown,
@@ -143,4 +163,16 @@ class KeyBindings {
         rKeyDown?.post(tap: loc)
         rKeyUp?.post(tap: loc)
     }
+    
+    // 20210701
+    func newWindow() {
+        nKeyDown?.post(tap: loc)
+        nKeyUp?.post(tap: loc)
+    }
+    
+    func newTab() {
+        ntKeyDown?.post(tap: loc)
+        ntKeyUp?.post(tap: loc)
+    }
+
 }

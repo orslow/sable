@@ -235,6 +235,10 @@ class ViewController: NSViewController {
             action.rightTab()
         case "Reload":
             action.reload()
+        case "Open a new window":
+            action.newWindow()
+        case "Open a new tab":
+            action.newTab()
         default:
             break
         }
