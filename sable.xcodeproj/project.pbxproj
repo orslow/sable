@@ -3,74 +3,76 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C3EBD0425A589C00004CAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0325A589C00004CAA7 /* AppDelegate.swift */; };
-		4C3EBD0625A589C00004CAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0525A589C00004CAA7 /* ViewController.swift */; };
-		4C3EBD0825A589C40004CAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0725A589C40004CAA7 /* Assets.xcassets */; };
-		4C3EBD0B25A589C40004CAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C3EBD0925A589C40004CAA7 /* Main.storyboard */; };
-		4CD370B125AC1F5400AAD846 /* GlobalEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */; };
-		4CEE609925AD97CC009A7306 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE609825AD97CC009A7306 /* Storage.swift */; };
-		4CEE609B25AD9F64009A7306 /* KeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEE609A25AD9F64009A7306 /* KeybindPreferences.swift */; };
-		4CF4ECB325A8671C006BB95B /* KeyBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF4ECB225A8671C006BB95B /* KeyBindings.swift */; };
+		4C7E9476276F3D0D00910C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9475276F3D0D00910C82 /* AppDelegate.swift */; };
+		4C7E9478276F3D0D00910C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9477276F3D0D00910C82 /* ViewController.swift */; };
+		4C7E947A276F3D0E00910C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E9479276F3D0E00910C82 /* Assets.xcassets */; };
+		4C7E947D276F3D0E00910C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E947B276F3D0E00910C82 /* Main.storyboard */; };
+		4C7E9487276F3D3E00910C82 /* GlobalEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9486276F3D3E00910C82 /* GlobalEventMonitor.swift */; };
+		4C7E948A276F3D5100910C82 /* KeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */; };
+		4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948C276F3D5B00910C82 /* Storage.swift */; };
+		4C7E9490276F3D6400910C82 /* KeyBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948F276F3D6400910C82 /* KeyBindings.swift */; };
+		4C7E9494276F3DB700910C82 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4C7E9493276F3DB700910C82 /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4C3EBD0025A589BF0004CAA7 /* sable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sable.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C3EBD0325A589C00004CAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C3EBD0525A589C00004CAA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4C3EBD0725A589C40004CAA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4C3EBD0A25A589C40004CAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4C3EBD0C25A589C40004CAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C3EBD0D25A589C40004CAA7 /* sable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sable.entitlements; sourceTree = "<group>"; };
-		4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventMonitor.swift; sourceTree = "<group>"; };
-		4CEE609825AD97CC009A7306 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		4CEE609A25AD9F64009A7306 /* KeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferences.swift; sourceTree = "<group>"; };
-		4CF4ECB225A8671C006BB95B /* KeyBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindings.swift; sourceTree = "<group>"; };
+		4C7E9472276F3D0D00910C82 /* sable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C7E9475276F3D0D00910C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4C7E9477276F3D0D00910C82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C7E9479276F3D0E00910C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4C7E947C276F3D0E00910C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4C7E947E276F3D0E00910C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C7E947F276F3D0E00910C82 /* sable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = sable.entitlements; sourceTree = "<group>"; };
+		4C7E9486276F3D3E00910C82 /* GlobalEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventMonitor.swift; sourceTree = "<group>"; };
+		4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferences.swift; sourceTree = "<group>"; };
+		4C7E948C276F3D5B00910C82 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		4C7E948F276F3D6400910C82 /* KeyBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4C3EBCFD25A589BF0004CAA7 /* Frameworks */ = {
+		4C7E946F276F3D0D00910C82 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7E9494276F3DB700910C82 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C3EBCF725A589BF0004CAA7 = {
+		4C7E9469276F3D0C00910C82 = {
 			isa = PBXGroup;
 			children = (
-				4C3EBD0225A589BF0004CAA7 /* sable */,
-				4C3EBD0125A589BF0004CAA7 /* Products */,
+				4C7E9474276F3D0D00910C82 /* sable */,
+				4C7E9473276F3D0D00910C82 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4C3EBD0125A589BF0004CAA7 /* Products */ = {
+		4C7E9473276F3D0D00910C82 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4C3EBD0025A589BF0004CAA7 /* sable.app */,
+				4C7E9472276F3D0D00910C82 /* sable.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4C3EBD0225A589BF0004CAA7 /* sable */ = {
+		4C7E9474276F3D0D00910C82 /* sable */ = {
 			isa = PBXGroup;
 			children = (
-				4C3EBD0325A589C00004CAA7 /* AppDelegate.swift */,
-				4CD370B025AC1F5400AAD846 /* GlobalEventMonitor.swift */,
-				4C3EBD0525A589C00004CAA7 /* ViewController.swift */,
-				4CEE609A25AD9F64009A7306 /* KeybindPreferences.swift */,
-				4CEE609825AD97CC009A7306 /* Storage.swift */,
-				4CF4ECB225A8671C006BB95B /* KeyBindings.swift */,
-				4C3EBD0725A589C40004CAA7 /* Assets.xcassets */,
-				4C3EBD0925A589C40004CAA7 /* Main.storyboard */,
-				4C3EBD0C25A589C40004CAA7 /* Info.plist */,
-				4C3EBD0D25A589C40004CAA7 /* sable.entitlements */,
+				4C7E9475276F3D0D00910C82 /* AppDelegate.swift */,
+				4C7E9486276F3D3E00910C82 /* GlobalEventMonitor.swift */,
+				4C7E9477276F3D0D00910C82 /* ViewController.swift */,
+				4C7E948C276F3D5B00910C82 /* Storage.swift */,
+				4C7E948F276F3D6400910C82 /* KeyBindings.swift */,
+				4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */,
+				4C7E9479276F3D0E00910C82 /* Assets.xcassets */,
+				4C7E947B276F3D0E00910C82 /* Main.storyboard */,
+				4C7E947E276F3D0E00910C82 /* Info.plist */,
+				4C7E947F276F3D0E00910C82 /* sable.entitlements */,
 			);
 			path = sable;
 			sourceTree = "<group>";
@@ -78,44 +80,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4C3EBCFF25A589BF0004CAA7 /* sable */ = {
+		4C7E9471276F3D0D00910C82 /* sable */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C3EBD1025A589C40004CAA7 /* Build configuration list for PBXNativeTarget "sable" */;
+			buildConfigurationList = 4C7E9482276F3D0E00910C82 /* Build configuration list for PBXNativeTarget "sable" */;
 			buildPhases = (
-				4C3EBCFC25A589BF0004CAA7 /* Sources */,
-				4C3EBCFD25A589BF0004CAA7 /* Frameworks */,
-				4C3EBCFE25A589BF0004CAA7 /* Resources */,
+				4C7E946E276F3D0D00910C82 /* Sources */,
+				4C7E946F276F3D0D00910C82 /* Frameworks */,
+				4C7E9470276F3D0D00910C82 /* Resources */,
+				4C7E9496276F3DC300910C82 /* Launch at Login Helper Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = sable;
+			packageProductDependencies = (
+				4C7E9493276F3DB700910C82 /* LaunchAtLogin */,
+			);
 			productName = sable;
-			productReference = 4C3EBD0025A589BF0004CAA7 /* sable.app */;
+			productReference = 4C7E9472276F3D0D00910C82 /* sable.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4C3EBCF825A589BF0004CAA7 /* Project object */ = {
+		4C7E946A276F3D0C00910C82 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
-				LastUpgradeCheck = 1030;
-				ORGANIZATIONNAME = jueon;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					4C3EBCFF25A589BF0004CAA7 = {
-						CreatedOnToolsVersion = 10.3;
-						SystemCapabilities = {
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
+					4C7E9471276F3D0D00910C82 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
-			buildConfigurationList = 4C3EBCFB25A589BF0004CAA7 /* Build configuration list for PBXProject "sable" */;
+			buildConfigurationList = 4C7E946D276F3D0C00910C82 /* Build configuration list for PBXProject "sable" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,49 +123,73 @@
 				en,
 				Base,
 			);
-			mainGroup = 4C3EBCF725A589BF0004CAA7;
-			productRefGroup = 4C3EBD0125A589BF0004CAA7 /* Products */;
+			mainGroup = 4C7E9469276F3D0C00910C82;
+			packageReferences = (
+				4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+			);
+			productRefGroup = 4C7E9473276F3D0D00910C82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C3EBCFF25A589BF0004CAA7 /* sable */,
+				4C7E9471276F3D0D00910C82 /* sable */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		4C3EBCFE25A589BF0004CAA7 /* Resources */ = {
+		4C7E9470276F3D0D00910C82 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C3EBD0825A589C40004CAA7 /* Assets.xcassets in Resources */,
-				4C3EBD0B25A589C40004CAA7 /* Main.storyboard in Resources */,
+				4C7E947A276F3D0E00910C82 /* Assets.xcassets in Resources */,
+				4C7E947D276F3D0E00910C82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C7E9496276F3DC300910C82 /* Launch at Login Helper Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Launch at Login Helper Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		4C3EBCFC25A589BF0004CAA7 /* Sources */ = {
+		4C7E946E276F3D0D00910C82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CF4ECB325A8671C006BB95B /* KeyBindings.swift in Sources */,
-				4C3EBD0625A589C00004CAA7 /* ViewController.swift in Sources */,
-				4CD370B125AC1F5400AAD846 /* GlobalEventMonitor.swift in Sources */,
-				4C3EBD0425A589C00004CAA7 /* AppDelegate.swift in Sources */,
-				4CEE609925AD97CC009A7306 /* Storage.swift in Sources */,
-				4CEE609B25AD9F64009A7306 /* KeybindPreferences.swift in Sources */,
+				4C7E9478276F3D0D00910C82 /* ViewController.swift in Sources */,
+				4C7E9476276F3D0D00910C82 /* AppDelegate.swift in Sources */,
+				4C7E9487276F3D3E00910C82 /* GlobalEventMonitor.swift in Sources */,
+				4C7E9490276F3D6400910C82 /* KeyBindings.swift in Sources */,
+				4C7E948A276F3D5100910C82 /* KeybindPreferences.swift in Sources */,
+				4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4C3EBD0925A589C40004CAA7 /* Main.storyboard */ = {
+		4C7E947B276F3D0E00910C82 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4C3EBD0A25A589C40004CAA7 /* Base */,
+				4C7E947C276F3D0E00910C82 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -173,7 +197,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4C3EBD0E25A589C40004CAA7 /* Debug */ = {
+		4C7E9480276F3D0E00910C82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -199,13 +223,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -234,7 +258,7 @@
 			};
 			name = Debug;
 		};
-		4C3EBD0F25A589C40004CAA7 /* Release */ = {
+		4C7E9481276F3D0E00910C82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -260,13 +284,13 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -288,10 +312,12 @@
 			};
 			name = Release;
 		};
-		4C3EBD1125A589C40004CAA7 /* Debug */ = {
+		4C7E9483276F3D0E00910C82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = sable/sable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = sable/Info.plist;
@@ -299,17 +325,18 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = orslow.sable;
+				PRODUCT_BUNDLE_IDENTIFIER = jueon.sable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		4C3EBD1225A589C40004CAA7 /* Release */ = {
+		4C7E9484276F3D0E00910C82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = sable/sable.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = sable/Info.plist;
@@ -317,8 +344,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = orslow.sable;
+				PRODUCT_BUNDLE_IDENTIFIER = jueon.sable;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -327,25 +353,44 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C3EBCFB25A589BF0004CAA7 /* Build configuration list for PBXProject "sable" */ = {
+		4C7E946D276F3D0C00910C82 /* Build configuration list for PBXProject "sable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C3EBD0E25A589C40004CAA7 /* Debug */,
-				4C3EBD0F25A589C40004CAA7 /* Release */,
+				4C7E9480276F3D0E00910C82 /* Debug */,
+				4C7E9481276F3D0E00910C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4C3EBD1025A589C40004CAA7 /* Build configuration list for PBXNativeTarget "sable" */ = {
+		4C7E9482276F3D0E00910C82 /* Build configuration list for PBXNativeTarget "sable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4C3EBD1125A589C40004CAA7 /* Debug */,
-				4C3EBD1225A589C40004CAA7 /* Release */,
+				4C7E9483276F3D0E00910C82 /* Debug */,
+				4C7E9484276F3D0E00910C82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4C7E9493276F3DB700910C82 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4C3EBCF825A589BF0004CAA7 /* Project object */;
+	rootObject = 4C7E946A276F3D0C00910C82 /* Project object */;
 }

@@ -7,10 +7,13 @@
 //
 
 import Cocoa
+import LaunchAtLogin
 
 weak var vc = ViewController()
 
 class ViewController: NSViewController {
+    
+    @objc dynamic var launchAtLogin = LaunchAtLogin.kvo
     
     @IBOutlet var MainView: NSView!
     

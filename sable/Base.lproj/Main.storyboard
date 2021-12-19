@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -709,23 +709,23 @@
             <objects>
                 <viewController storyboardIdentifier="QuotesViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="sable" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" identifier="ViewController" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="459" height="348"/>
+                        <rect key="frame" x="0.0" y="0.0" width="459" height="370"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-Bs-Yfu" userLabel="menu1">
-                                <rect key="frame" x="50" y="304" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" identifier="left" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="b6U-xC-SZ3" id="U4W-93-CFB">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LUu-Bs-Yfu" userLabel="menu1">
+                                <rect key="frame" x="50" y="326" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" identifier="left" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="b6U-xC-SZ3" id="U4W-93-CFB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="zp8-Mj-F0W">
                                         <items>
-                                            <menuItem title="No action" id="b6U-xC-SZ3">
+                                            <menuItem title="No action" state="on" id="b6U-xC-SZ3">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="nsU-NX-E3v">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Forward" state="on" id="p8d-Qv-CVf" userLabel="Forward">
+                                            <menuItem title="Forward" id="p8d-Qv-CVf" userLabel="Forward">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Scroll to top" id="a3t-Xs-mBy">
@@ -759,17 +759,17 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-PV-jPg" userLabel="menu2">
-                                <rect key="frame" x="50" y="263" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="j37-6g-Not" id="iHX-0e-pIR">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-PV-jPg" userLabel="menu2">
+                                <rect key="frame" x="50" y="285" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="j37-6g-Not" id="iHX-0e-pIR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="BOy-5Z-ati">
                                         <items>
-                                            <menuItem title="No action" id="j37-6g-Not">
+                                            <menuItem title="No action" state="on" id="j37-6g-Not">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Back" state="on" id="0oP-HH-Qn3">
+                                            <menuItem title="Back" id="0oP-HH-Qn3">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Forward" id="wgB-Z0-F0S" userLabel="Forward">
@@ -806,14 +806,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-7K-qZw" userLabel="menu3">
-                                <rect key="frame" x="50" y="222" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="G6Y-hX-fIo" id="aJi-14-rVC">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZi-7K-qZw" userLabel="menu3">
+                                <rect key="frame" x="50" y="244" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="G6Y-hX-fIo" id="aJi-14-rVC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="krO-d7-WU0">
                                         <items>
-                                            <menuItem title="No action" id="G6Y-hX-fIo">
+                                            <menuItem title="No action" state="on" id="G6Y-hX-fIo">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="5cX-kb-xQg">
@@ -825,7 +825,7 @@
                                             <menuItem title="Scroll to top" id="tTJ-aZ-wAO">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Scroll to bottom" state="on" id="3HZ-8S-xv9">
+                                            <menuItem title="Scroll to bottom" id="3HZ-8S-xv9">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Close tab" id="OyO-zm-gq4">
@@ -853,14 +853,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pg8-v7-eIi" userLabel="menu4">
-                                <rect key="frame" x="50" y="181" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="cbV-SM-xhB" id="rcv-qa-ngQ">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pg8-v7-eIi" userLabel="menu4">
+                                <rect key="frame" x="50" y="203" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="cbV-SM-xhB" id="rcv-qa-ngQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="U3f-Mp-hxe">
                                         <items>
-                                            <menuItem title="No action" id="cbV-SM-xhB">
+                                            <menuItem title="No action" state="on" id="cbV-SM-xhB">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="fcs-20-X3T">
@@ -869,7 +869,7 @@
                                             <menuItem title="Forward" id="4JT-ZR-WV5" userLabel="Forward">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Scroll to top" state="on" id="6AM-gj-xtF">
+                                            <menuItem title="Scroll to top" id="6AM-gj-xtF">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Scroll to bottom" id="0cN-yq-WJB">
@@ -900,11 +900,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-MJ-2ww" userLabel="menu5">
-                                <rect key="frame" x="50" y="140" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-MJ-2ww" userLabel="menu5">
+                                <rect key="frame" x="50" y="162" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="UzL-bx-CFB" id="nwU-kU-bsp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="cNj-0I-bLx">
                                         <items>
                                             <menuItem title="No action" state="on" id="UzL-bx-CFB">
@@ -947,11 +947,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-NY-pIU" userLabel="menu6">
-                                <rect key="frame" x="50" y="99" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zs2-NY-pIU" userLabel="menu6">
+                                <rect key="frame" x="50" y="121" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="zIs-Gs-wzh" id="Wkv-6U-z1c">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="1oC-Qx-I5p">
                                         <items>
                                             <menuItem title="No action" state="on" id="zIs-Gs-wzh">
@@ -994,14 +994,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-tJ-fae" userLabel="menu7">
-                                <rect key="frame" x="50" y="58" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="PC6-Yq-Yap" id="NYo-bF-L6q">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-tJ-fae" userLabel="menu7">
+                                <rect key="frame" x="50" y="80" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="PC6-Yq-Yap" id="NYo-bF-L6q">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="W2x-Mi-OI9">
                                         <items>
-                                            <menuItem title="No action" id="PC6-Yq-Yap">
+                                            <menuItem title="No action" state="on" id="PC6-Yq-Yap">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="bY4-6O-Gy3">
@@ -1022,7 +1022,7 @@
                                             <menuItem title="Reopen closed tab" id="dBv-1o-RhF" userLabel="Reopen closed tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Move to left tab" state="on" id="PAL-zg-g0M" userLabel="Move to left tab">
+                                            <menuItem title="Move to left tab" id="PAL-zg-g0M" userLabel="Move to left tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Move to right tab" id="5dd-iS-Uaq" userLabel="Move to right tab">
@@ -1041,14 +1041,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qj4-qQ-GPw" userLabel="menu8">
-                                <rect key="frame" x="50" y="17" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="aLi-gp-FqM" id="eqa-xd-SQW">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qj4-qQ-GPw" userLabel="menu8">
+                                <rect key="frame" x="50" y="39" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="aLi-gp-FqM" id="eqa-xd-SQW">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="uHv-EZ-Wug">
                                         <items>
-                                            <menuItem title="No action" id="aLi-gp-FqM">
+                                            <menuItem title="No action" state="on" id="aLi-gp-FqM">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="orJ-37-Km8">
@@ -1072,7 +1072,7 @@
                                             <menuItem title="Move to left tab" id="OqY-NX-GA3" userLabel="Move to left tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Move to right tab" state="on" id="LCZ-zX-xlW" userLabel="Move to right tab">
+                                            <menuItem title="Move to right tab" id="LCZ-zX-xlW" userLabel="Move to right tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Reload" id="Kse-hQ-Eut" userLabel="Reload">
@@ -1089,53 +1089,53 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f8r-sP-eCI" userLabel="img_left">
-                                <rect key="frame" x="17" y="303" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="325" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="left" id="XiN-oU-0XB"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Wf-RC-lzb" userLabel="img_right">
-                                <rect key="frame" x="17" y="262" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="284" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="right" id="9uC-sE-0Pd"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ZZ-p1-1Zp" userLabel="img_up">
-                                <rect key="frame" x="17" y="221" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="243" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="up" id="T7y-Xp-6Rd"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UqL-Db-geG" userLabel="img_down">
-                                <rect key="frame" x="17" y="180" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="202" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="down" id="MRi-ja-wfE"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9L8-iC-i1M" userLabel="img_u">
-                                <rect key="frame" x="17" y="139" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="161" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="u" id="2OM-td-JjO"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otW-pf-Ycc" userLabel="img_i">
-                                <rect key="frame" x="17" y="98" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="i" id="5zh-IO-Xil"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="agl-8g-ItQ" userLabel="img_k">
-                                <rect key="frame" x="17" y="57" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="79" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="k" id="ugC-wV-3SI"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fiE-gG-JTH" userLabel="img_j">
-                                <rect key="frame" x="17" y="16" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="17" y="38" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="j" id="qMb-UN-hUT"/>
                             </imageView>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-Q6-Pc6" userLabel="menu9">
-                                <rect key="frame" x="280" y="304" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="FPM-Ik-hpo" id="oqF-x5-wFb">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-Q6-Pc6" userLabel="menu9">
+                                <rect key="frame" x="280" y="326" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="FPM-Ik-hpo" id="oqF-x5-wFb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="ifZ-bf-W6b">
                                         <items>
-                                            <menuItem title="No action" id="FPM-Ik-hpo">
+                                            <menuItem title="No action" state="on" id="FPM-Ik-hpo">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="0z9-HE-7Vy">
@@ -1150,7 +1150,7 @@
                                             <menuItem title="Scroll to bottom" id="LIY-yj-pVh">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Close tab" state="on" id="B5x-40-aNh">
+                                            <menuItem title="Close tab" id="B5x-40-aNh">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Reopen closed tab" id="NAb-NX-tgD" userLabel="Reopen closed tab">
@@ -1175,11 +1175,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="67N-Pn-drU" userLabel="menu10">
-                                <rect key="frame" x="280" y="263" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67N-Pn-drU" userLabel="menu10">
+                                <rect key="frame" x="280" y="285" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Duq-Za-dVS" id="9cR-wr-2Hy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="Lpl-B4-wSS">
                                         <items>
                                             <menuItem title="No action" state="on" id="Duq-Za-dVS">
@@ -1222,11 +1222,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o9R-8F-Mzs" userLabel="menu11">
-                                <rect key="frame" x="280" y="222" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9R-8F-Mzs" userLabel="menu11">
+                                <rect key="frame" x="280" y="244" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="8Kp-Yb-iOU" id="LQ3-jg-zfI">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="zjz-P8-rOa">
                                         <items>
                                             <menuItem title="No action" state="on" id="8Kp-Yb-iOU">
@@ -1269,11 +1269,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4xN-fk-hdR" userLabel="menu12">
-                                <rect key="frame" x="280" y="181" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4xN-fk-hdR" userLabel="menu12">
+                                <rect key="frame" x="280" y="203" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="V3l-TS-opq" id="Ghk-JW-6SQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="qy6-MS-8qt">
                                         <items>
                                             <menuItem title="No action" state="on" id="V3l-TS-opq">
@@ -1316,11 +1316,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-MU-R27" userLabel="menu13">
-                                <rect key="frame" x="280" y="140" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqp-MU-R27" userLabel="menu13">
+                                <rect key="frame" x="280" y="162" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="I3D-gg-UYS" id="N8s-qG-hKR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="gaz-Am-Dml">
                                         <items>
                                             <menuItem title="No action" state="on" id="I3D-gg-UYS">
@@ -1363,14 +1363,14 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="buc-EX-ARz" userLabel="menu14">
-                                <rect key="frame" x="280" y="99" width="160" height="25"/>
-                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Bps-Is-bXc" id="Ccd-AO-7bZ">
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buc-EX-ARz" userLabel="menu14">
+                                <rect key="frame" x="280" y="121" width="160" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="Bps-Is-bXc" id="Ccd-AO-7bZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="Hp8-Mj-8U8">
                                         <items>
-                                            <menuItem title="No action" id="Bps-Is-bXc">
+                                            <menuItem title="No action" state="on" id="Bps-Is-bXc">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Back" id="HZL-mD-4Uw">
@@ -1388,7 +1388,7 @@
                                             <menuItem title="Close tab" id="p2c-6J-GGG">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
-                                            <menuItem title="Reopen closed tab" state="on" id="xnJ-DN-p8K" userLabel="Reopen closed tab">
+                                            <menuItem title="Reopen closed tab" id="xnJ-DN-p8K" userLabel="Reopen closed tab">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
                                             <menuItem title="Move to left tab" id="h7p-Vt-jXg" userLabel="Move to left tab">
@@ -1410,11 +1410,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-QH-hcT" userLabel="menu15">
-                                <rect key="frame" x="280" y="58" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HIQ-QH-hcT" userLabel="menu15">
+                                <rect key="frame" x="280" y="80" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="8hQ-Af-MzD" id="LUE-WR-LL1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="okH-gL-Did">
                                         <items>
                                             <menuItem title="No action" state="on" id="8hQ-Af-MzD">
@@ -1457,11 +1457,11 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
-                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="54m-bC-hbh" userLabel="menu16">
-                                <rect key="frame" x="280" y="17" width="160" height="25"/>
+                            <popUpButton verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="54m-bC-hbh" userLabel="menu16">
+                                <rect key="frame" x="280" y="39" width="160" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="No action" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" arrowPosition="arrowAtCenter" selectedItem="YpU-hZ-oAl" id="tqC-S8-y6U">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="jeu-gU-54Q">
                                         <items>
                                             <menuItem title="No action" state="on" id="YpU-hZ-oAl">
@@ -1505,101 +1505,94 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y1A-GA-MVc" userLabel="img_ur">
-                                <rect key="frame" x="247" y="303" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="325" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="down-right" id="KEZ-q2-d2B"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OED-1q-D0o" userLabel="img_rd">
-                                <rect key="frame" x="247" y="262" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="284" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="right-up" id="8bo-i9-gTR"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjd-oy-LgK" userLabel="img_dl">
-                                <rect key="frame" x="247" y="221" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="243" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="up-left" id="zQx-VQ-a77"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZAe-vK-Uog" userLabel="img_lu">
-                                <rect key="frame" x="247" y="180" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="202" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="left-down" id="nSY-1t-tTm"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCz-nb-1WM" userLabel="img_dr">
-                                <rect key="frame" x="247" y="139" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="161" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="up-right" id="8NM-bi-Xt9"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yvr-eN-lyI" userLabel="img_ru">
-                                <rect key="frame" x="247" y="98" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="120" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="right-down" id="YqE-HI-sqr"/>
                             </imageView>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lVC-oR-mbi" userLabel="img_ul">
-                                <rect key="frame" x="247" y="57" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="79" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="down-left" id="MPT-S4-JSa"/>
                             </imageView>
-                            <box horizontalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0f7-Op-kFM">
-                                <rect key="frame" x="227" y="12" width="5" height="324"/>
+                            <box horizontalHuggingPriority="750" misplaced="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0f7-Op-kFM">
+                                <rect key="frame" x="228" y="42" width="4" height="310"/>
                             </box>
                             <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Es5-4y-gYA" userLabel="img_ld">
-                                <rect key="frame" x="247" y="16" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <rect key="frame" x="247" y="38" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" image="left-up" id="5Ku-Dc-JKa"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QbY-PL-Tde">
+                                <rect key="frame" x="20" y="10" width="115" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Launch at login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="rRN-UX-zj1">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="XfG-lQ-9wD" name="value" keyPath="launchAtLogin.isEnabled" id="Rqi-26-laM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="buc-EX-ARz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="0It-3j-bo8"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="4xN-fk-hdR" secondAttribute="trailing" constant="31" id="0vu-T0-JXx"/>
-                            <constraint firstItem="Qj4-qQ-GPw" firstAttribute="top" secondItem="HIQ-tJ-fae" secondAttribute="bottom" constant="20" id="1NB-qi-hbH"/>
-                            <constraint firstItem="zs2-NY-pIU" firstAttribute="top" secondItem="lD1-MJ-2ww" secondAttribute="bottom" constant="20" id="38e-AG-fHo"/>
-                            <constraint firstItem="o9R-8F-Mzs" firstAttribute="top" secondItem="67N-Pn-drU" secondAttribute="bottom" constant="20" id="3fc-Wb-iZ9"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="0Nb-Q6-Pc6" secondAttribute="trailing" constant="31" id="5Aj-TQ-qjS"/>
-                            <constraint firstItem="lD1-MJ-2ww" firstAttribute="top" secondItem="pg8-v7-eIi" secondAttribute="bottom" constant="20" id="5gd-y2-3Rb"/>
                             <constraint firstItem="0f7-Op-kFM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="12" id="6GE-6e-UCo"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tqp-MU-R27" secondAttribute="trailing" constant="31" id="8Ck-Tc-KgU"/>
-                            <constraint firstItem="67N-Pn-drU" firstAttribute="top" secondItem="0Nb-Q6-Pc6" secondAttribute="bottom" constant="20" id="8n9-vy-xqA"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="pg8-v7-eIi" secondAttribute="trailing" constant="261" id="9H9-6S-oaf"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Qj4-qQ-GPw" secondAttribute="trailing" constant="261" id="A97-8v-tCs"/>
-                            <constraint firstItem="k1g-PV-jPg" firstAttribute="top" secondItem="LUu-Bs-Yfu" secondAttribute="bottom" constant="20" id="Bin-4g-vFr"/>
                             <constraint firstItem="zs2-NY-pIU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="CWw-gm-xR7"/>
                             <constraint firstItem="67N-Pn-drU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="E17-Pb-vI2"/>
-                            <constraint firstAttribute="bottom" secondItem="Qj4-qQ-GPw" secondAttribute="bottom" constant="20" id="FOy-Gs-vhr"/>
                             <constraint firstItem="JZi-7K-qZw" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="HZN-Gm-dLo"/>
                             <constraint firstItem="pg8-v7-eIi" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="INn-Jm-15z"/>
-                            <constraint firstItem="HIQ-tJ-fae" firstAttribute="top" secondItem="zs2-NY-pIU" secondAttribute="bottom" constant="20" id="JEv-CU-6pt"/>
                             <constraint firstItem="LUu-Bs-Yfu" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="LqZ-cl-zvH"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="HIQ-QH-hcT" secondAttribute="trailing" constant="31" id="MaF-SC-eMq"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="o9R-8F-Mzs" secondAttribute="trailing" constant="31" id="Mh5-5n-Evf"/>
-                            <constraint firstItem="buc-EX-ARz" firstAttribute="top" secondItem="tqp-MU-R27" secondAttribute="bottom" constant="20" id="Nch-qM-vNb"/>
                             <constraint firstItem="4xN-fk-hdR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="Qlf-dB-zPG"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="zs2-NY-pIU" secondAttribute="trailing" constant="261" id="SDS-aW-qHb"/>
-                            <constraint firstAttribute="bottom" secondItem="54m-bC-hbh" secondAttribute="bottom" constant="20" id="Sn3-oY-Q6D"/>
                             <constraint firstItem="HIQ-QH-hcT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="TRF-ns-g5s"/>
                             <constraint firstItem="lD1-MJ-2ww" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="V2f-wL-odh"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="LUu-Bs-Yfu" secondAttribute="trailing" constant="261" id="Wjg-MJ-JKu"/>
-                            <constraint firstItem="pg8-v7-eIi" firstAttribute="top" secondItem="JZi-7K-qZw" secondAttribute="bottom" constant="20" id="X6h-IX-mTn"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="54m-bC-hbh" secondAttribute="trailing" constant="31" id="YI2-64-Xg8"/>
                             <constraint firstItem="0f7-Op-kFM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="229" id="aYv-aj-Z5v"/>
-                            <constraint firstItem="LUu-Bs-Yfu" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="aba-PX-lGt"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lD1-MJ-2ww" secondAttribute="trailing" constant="261" id="bA9-Xd-qce"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="67N-Pn-drU" secondAttribute="trailing" constant="31" id="bnQ-Bn-ehK"/>
                             <constraint firstItem="tqp-MU-R27" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="cvs-hU-Q9i"/>
                             <constraint firstAttribute="bottom" secondItem="0f7-Op-kFM" secondAttribute="bottom" constant="12" id="d2Y-9w-D0X"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="k1g-PV-jPg" secondAttribute="trailing" constant="261" id="dhB-Mr-aCp"/>
-                            <constraint firstItem="HIQ-QH-hcT" firstAttribute="top" secondItem="buc-EX-ARz" secondAttribute="bottom" constant="20" id="dpp-Dv-U8e"/>
-                            <constraint firstItem="54m-bC-hbh" firstAttribute="top" secondItem="HIQ-QH-hcT" secondAttribute="bottom" constant="20" id="gnO-Db-mn1"/>
-                            <constraint firstItem="JZi-7K-qZw" firstAttribute="top" secondItem="k1g-PV-jPg" secondAttribute="bottom" constant="20" id="h8p-hv-ISs"/>
-                            <constraint firstItem="0Nb-Q6-Pc6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="ilN-5v-5zv"/>
                             <constraint firstItem="0Nb-Q6-Pc6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="jqE-ER-41O"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="JZi-7K-qZw" secondAttribute="trailing" constant="261" id="kH6-mc-VeN"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="HIQ-tJ-fae" secondAttribute="trailing" constant="261" id="lUT-ht-hse"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="buc-EX-ARz" secondAttribute="trailing" constant="31" id="qRY-FQ-5jy"/>
                             <constraint firstItem="HIQ-tJ-fae" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="qnA-2K-QUf"/>
-                            <constraint firstItem="4xN-fk-hdR" firstAttribute="top" secondItem="o9R-8F-Mzs" secondAttribute="bottom" constant="20" id="rp1-yC-12c"/>
                             <constraint firstAttribute="trailing" secondItem="0f7-Op-kFM" secondAttribute="trailing" constant="229" id="sFG-bc-RTt"/>
                             <constraint firstItem="k1g-PV-jPg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="tVB-SD-OEY"/>
-                            <constraint firstItem="tqp-MU-R27" firstAttribute="top" secondItem="4xN-fk-hdR" secondAttribute="bottom" constant="20" id="tYx-yu-eyQ"/>
                             <constraint firstItem="54m-bC-hbh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="tdf-vD-8Pc"/>
                             <constraint firstItem="Qj4-qQ-GPw" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="52" id="vqv-Ns-MkF"/>
                             <constraint firstItem="o9R-8F-Mzs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="282" id="z35-3y-mvR"/>
@@ -1627,7 +1620,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-252.5" y="727"/>
+            <point key="canvasLocation" x="-252.5" y="750"/>
         </scene>
     </scenes>
     <resources>

@@ -57,9 +57,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                                options: .defaultTap,
                                                eventsOfInterest: CGEventMask(eventMask),
                                                callback: myCGEventCallback,
-                                               userInfo: nil) else {
-                                                print("failed to create event tap")
-                                                exit(1)
+                                               userInfo: nil)
+            else {
+                print("failed to create event tap")
+                let alert = NSAlert.init()
+                alert.messageText = ""
+                alert.informativeText = "Grant access to sable in System Preferences and reopen application."
+                alert.addButton(withTitle: "OK")
+                alert.runModal()
+                exit(1);
         }
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
