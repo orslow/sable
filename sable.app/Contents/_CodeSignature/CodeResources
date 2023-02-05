@@ -6,31 +6,31 @@
 	<dict>
 		<key>Resources/Assets.car</key>
 		<data>
-		Fs1ImPSAzk6kAYONCv87n3gBAew=
+		Bt4Po9ZzozIzQQZcnTZPwARuq4E=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<data>
-		+kdmBYbCb4RO+Rc9EoiPK6i4+yo=
+		tOrRHOdqcdsend/mleMPtoH9IhM=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<data>
-		SGbDopixbBPyUH2E1xlcfhgwq/Q=
+		o6swQG2LVl1cxfb1CqcIoTb2v7k=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<data>
-		33asW7tgxlw6LRytbtcD2Fgny/I=
+		wvF03kfzA44/b4Nm6p6BHtK7Rp4=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/QuotesViewController.nib</key>
 		<data>
-		aVDAwKcj8GC/Z+m67kheNCK6wyE=
+		vU12Mm9tV8+cD90NxN64KyTKsYE=
 		</data>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<data>
-		HtSwj90sn5kLJXYuH10KSnr6yWs=
+		1SA7vqMABi+fRdd4ODYLbjHWcxA=
 		</data>
 		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Info.plist</key>
 		<data>
-		Ua3wMw02Up+CipnBZCtsLGBR5Fw=
+		IHE5oDQ27QM7ZpSItm4ICUGIkow=
 		</data>
 		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLogin.entitlements</key>
 		<data>
@@ -55,58 +55,58 @@
 		<dict>
 			<key>cdhash</key>
 			<data>
-			wnJf+IWZR99RlLTrRg11zJGelnM=
+			5P3eWUNJGzTy6RlTB3GNj/LoX5A=
 			</data>
 			<key>requirement</key>
-			<string>cdhash H"c2725ff8859947df5194b4eb460d75cc919e9673" or cdhash H"0cc9885793a8502b5fbd60cd819b637077d63c6c"</string>
+			<string>cdhash H"e4fdde5943491b34f2e9195307718d8ff2e85f90" or cdhash H"cac1bc8b3486773361e1a84736e95634da8ce8f5"</string>
 		</dict>
 		<key>Resources/Assets.car</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tyMNQJrA1Qwd8akStNsjMk+/9mDtoxfq5UeYn5RoiZU=
+			gHfNp6oXtBulu6H3NPl3YkxNjL9QzDqVMXTjd/GLyiA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fzO+1iesvnmpJepk9OxVxByPLvXjItHl0wddUQ3J6cY=
+			2W0A9Xq9ZXTykOjYmNqbFDInkCXrXQwLyVEVCEDx798=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/MainMenu.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Ods9Hh0qN5yYm9TuHh/Nv9TL2DlBa59Gr2P/5tYqwkQ=
+			3Ui72EBkbqvBZyBSuBvqr3nfjiNwXgoXuYwZ7RU2gp8=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			DRb22fIX34EPVytI6vonGd9bQKp/cIWxqB/VpAslunA=
+			CVI6Ud4gQS6VDqJPEqJnTvkkDz48UKqR6hVVGMnLf10=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/QuotesViewController.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			2nKd6/m1I5h0qifk6pLye1cXZdudoKIvqDatoKixdZU=
+			dciV3N7+e5feORhSeTVq9aXJMNYxq8JEobDD+2Z3DYA=
 			</data>
 		</dict>
 		<key>Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			7FmRw80/1HwXvVKG8arda6D66FHJ/TXG+W2v0iBAF20=
+			ih3Lw/rJlNzF0ki3kRdKGE/PuyV+3Q8zJokdgegdnUw=
 			</data>
 		</dict>
 		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Info.plist</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			0LAwcpLn9tGlEKrZ8qZOBwQlquxC+plcuh1pN6wHz1Q=
+			YYpRdXB2BQnTcojCKeQR90R7/Tn2WhjPL20F3yt1RjQ=
 			</data>
 		</dict>
 		<key>Resources/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/LaunchAtLogin.entitlements</key>

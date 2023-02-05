@@ -12,7 +12,10 @@ func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent
 
     let appName = NSWorkspace.shared.frontmostApplication?.localizedName
     
-    if (appName?.contains("Chrome"))! || (appName?.contains("Safari"))! {
+    if (appName?.contains("Chrome"))! ||
+        (appName?.contains("Safari"))! ||
+        (appName?.contains("Brave"))! ||
+        (appName?.contains("Firefox"))! {
         // if [.rightMouseDown , .rightMouseUp].contains(type) {
         if [.rightMouseDown].contains(type) {
             let keyCode = event.getIntegerValueField(.mouseEventClickState)
