@@ -8,14 +8,22 @@
 
 import Cocoa
 
+var allowedApps: [String] = AppListPreferences.defaultApps
+
+func reloadAllowedApps() {
+    allowedApps = AppListPreferences.getAppList()
+}
+
+func isAppAllowed(_ appName: String?) -> Bool {
+    guard let name = appName else { return false }
+    return allowedApps.contains { name.contains($0) }
+}
+
 func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, refcon: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
 
     let appName = NSWorkspace.shared.frontmostApplication?.localizedName
-    
-    if (appName?.contains("Chrome"))! ||
-        (appName?.contains("Safari"))! ||
-        (appName?.contains("Brave"))! ||
-        (appName?.contains("Firefox"))! {
+
+    if isAppAllowed(appName) {
         // if [.rightMouseDown , .rightMouseUp].contains(type) {
         if [.rightMouseDown].contains(type) {
             let keyCode = event.getIntegerValueField(.mouseEventClickState)
@@ -47,33 +55,64 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     let eventMask = (1 << CGEventType.rightMouseDown.rawValue) | (1 << CGEventType.rightMouseUp.rawValue) | (1 << CGEventType.rightMouseDragged.rawValue)
 
+    var accessibilityCheckTimer: Timer?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+
+        reloadAllowedApps()
 
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("sable"))
-            // button.action = #selector(printQuote(_:)) // with no menu
         }
         constructMenu()
-        
+
+        if AXIsProcessTrusted() {
+            startEventTap()
+        } else {
+            requestAccessibility()
+        }
+
+        CFRunLoopRun()
+    }
+
+    func requestAccessibility() {
+        // 시스템 기본 다이얼로그 표시 + 접근성 목록에 자동 추가
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): true] as CFDictionary
+        AXIsProcessTrustedWithOptions(options)
+        // 타이머로 권한 대기
+        waitForAccessibility()
+    }
+
+    func waitForAccessibility() {
+        accessibilityCheckTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            if AXIsProcessTrusted() {
+                timer.invalidate()
+                self?.accessibilityCheckTimer = nil
+                self?.startEventTap()
+            }
+        }
+    }
+
+    func startEventTap() {
         guard let eventTap = CGEvent.tapCreate(tap: .cgSessionEventTap,
                                                place: .headInsertEventTap,
                                                options: .defaultTap,
                                                eventsOfInterest: CGEventMask(eventMask),
                                                callback: myCGEventCallback,
                                                userInfo: nil)
-            else {
-                print("failed to create event tap")
-                let alert = NSAlert.init()
-                alert.messageText = ""
-                alert.informativeText = "Grant access to sable in System Preferences and reopen application."
-                alert.addButton(withTitle: "OK")
-                alert.runModal()
-                exit(1);
+        else {
+            print("failed to create event tap")
+            let alert = NSAlert()
+            alert.messageText = "Error"
+            alert.informativeText = "Failed to create event tap. Please restart sable."
+            alert.addButton(withTitle: "Quit")
+            alert.runModal()
+            NSApplication.shared.terminate(nil)
+            return
         }
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
         CGEvent.tapEnable(tap: eventTap, enable: true)
-        CFRunLoopRun()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -91,11 +130,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func getPreferences(_ sender: Any?) {
-        let prefWindow = NSApplication.shared.windows.last
-        
         NSApplication.shared.activate(ignoringOtherApps: true)
-        prefWindow?.makeKeyAndOrderFront(self)
-        prefWindow?.makeKey()
+        // ViewController의 윈도우를 직접 참조
+        if let window = vc?.view.window {
+            window.makeKeyAndOrderFront(self)
+            window.level = .floating
+        }
     }
     
 }

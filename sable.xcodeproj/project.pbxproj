@@ -16,6 +16,7 @@
 		4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948C276F3D5B00910C82 /* Storage.swift */; };
 		4C7E9490276F3D6400910C82 /* KeyBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948F276F3D6400910C82 /* KeyBindings.swift */; };
 		4C7E9494276F3DB700910C82 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4C7E9493276F3DB700910C82 /* LaunchAtLogin */; };
+		4C7E9497276F3D7000910C82 /* AppListPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9498276F3D7000910C82 /* AppListPreferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeybindPreferences.swift; sourceTree = "<group>"; };
 		4C7E948C276F3D5B00910C82 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		4C7E948F276F3D6400910C82 /* KeyBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindings.swift; sourceTree = "<group>"; };
+		4C7E9498276F3D7000910C82 /* AppListPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListPreferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4C7E948C276F3D5B00910C82 /* Storage.swift */,
 				4C7E948F276F3D6400910C82 /* KeyBindings.swift */,
 				4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */,
+				4C7E9498276F3D7000910C82 /* AppListPreferences.swift */,
 				4C7E9479276F3D0E00910C82 /* Assets.xcassets */,
 				4C7E947B276F3D0E00910C82 /* Main.storyboard */,
 				4C7E947E276F3D0E00910C82 /* Info.plist */,
@@ -180,6 +183,7 @@
 				4C7E9490276F3D6400910C82 /* KeyBindings.swift in Sources */,
 				4C7E948A276F3D5100910C82 /* KeybindPreferences.swift in Sources */,
 				4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */,
+				4C7E9497276F3D7000910C82 /* AppListPreferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

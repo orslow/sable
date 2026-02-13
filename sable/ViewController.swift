@@ -11,7 +11,198 @@ import LaunchAtLogin
 
 weak var vc = ViewController()
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+
+    // MARK: - App List Management
+    var appList: [String] = []
+    var appTableView: NSTableView!
+    var appListPanel: NSPanel?
+
+    func setupAppListButton() {
+        let button = NSButton(title: "Manage Apps…", target: self, action: #selector(toggleAppListPanel(_:)))
+        button.bezelStyle = .rounded
+        button.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(button)
+
+        // Launch at login 체크박스(y=10, x=20) 옆에 배치
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 160),
+            button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -8),
+            button.heightAnchor.constraint(equalToConstant: 24),
+        ])
+    }
+
+    @objc func toggleAppListPanel(_ sender: Any) {
+        if let panel = appListPanel, panel.isVisible {
+            panel.close()
+            return
+        }
+        showAppListPanel()
+    }
+
+    func showAppListPanel() {
+        // Preferences 윈도우 기준 우측에 패널 배치
+        let panelWidth: CGFloat = 240
+        let panelHeight: CGFloat = 300
+
+        var panelRect = NSRect(x: 0, y: 0, width: panelWidth, height: panelHeight)
+        if let prefWindow = self.view.window {
+            let prefFrame = prefWindow.frame
+            panelRect.origin.x = prefFrame.maxX + 8
+            panelRect.origin.y = prefFrame.midY - panelHeight / 2
+        }
+
+        let panel = NSPanel(
+            contentRect: panelRect,
+            styleMask: [.titled, .closable, .utilityWindow],
+            backing: .buffered,
+            defer: false
+        )
+        panel.title = "Applications"
+        panel.isFloatingPanel = true
+        panel.hidesOnDeactivate = false
+        panel.level = .floating
+
+        let contentView = NSView(frame: NSRect(x: 0, y: 0, width: panelWidth, height: panelHeight))
+
+        // ScrollView + TableView
+        let scrollView = NSScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.hasVerticalScroller = true
+        scrollView.borderType = .bezelBorder
+
+        appTableView = NSTableView()
+        appTableView.delegate = self
+        appTableView.dataSource = self
+        appTableView.headerView = nil
+        appTableView.rowHeight = 22
+        appTableView.usesAlternatingRowBackgroundColors = true
+
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("AppColumn"))
+        column.title = "Application"
+        appTableView.addTableColumn(column)
+
+        scrollView.documentView = appTableView
+        contentView.addSubview(scrollView)
+
+        // + 버튼
+        let addButton = NSButton(title: "+", target: self, action: #selector(addApp(_:)))
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.bezelStyle = .smallSquare
+        addButton.font = NSFont.systemFont(ofSize: 16)
+        contentView.addSubview(addButton)
+
+        // - 버튼
+        let removeButton = NSButton(title: "−", target: self, action: #selector(removeApp(_:)))
+        removeButton.translatesAutoresizingMaskIntoConstraints = false
+        removeButton.bezelStyle = .smallSquare
+        removeButton.font = NSFont.systemFont(ofSize: 16)
+        contentView.addSubview(removeButton)
+
+        // 안내 텍스트
+        let hint = NSTextField(labelWithString: "App name is matched partially.\ne.g. \"Chrome\" matches Google Chrome.")
+        hint.font = NSFont.systemFont(ofSize: 10)
+        hint.textColor = .secondaryLabelColor
+        hint.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(hint)
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            scrollView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -8),
+
+            addButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            addButton.bottomAnchor.constraint(equalTo: hint.topAnchor, constant: -8),
+            addButton.widthAnchor.constraint(equalToConstant: 28),
+            addButton.heightAnchor.constraint(equalToConstant: 28),
+
+            removeButton.leadingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 0),
+            removeButton.bottomAnchor.constraint(equalTo: addButton.bottomAnchor),
+            removeButton.widthAnchor.constraint(equalToConstant: 28),
+            removeButton.heightAnchor.constraint(equalToConstant: 28),
+
+            hint.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 14),
+            hint.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
+            hint.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+        ])
+
+        panel.contentView = contentView
+        panel.makeKeyAndOrderFront(nil)
+        appListPanel = panel
+        appTableView.reloadData()
+    }
+
+    @objc func addApp(_ sender: Any) {
+        let alert = NSAlert()
+        alert.messageText = "Add Application"
+        alert.informativeText = "Enter the application name (e.g., Chrome, Safari):"
+        alert.addButton(withTitle: "Add")
+        alert.addButton(withTitle: "Cancel")
+
+        let inputField = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
+        inputField.placeholderString = "Application name"
+        alert.accessoryView = inputField
+
+        let response = alert.runModal()
+        if response == .alertFirstButtonReturn {
+            let appName = inputField.stringValue.trimmingCharacters(in: .whitespaces)
+            if !appName.isEmpty && !appList.contains(appName) {
+                appList.append(appName)
+                appTableView.reloadData()
+                saveAppList()
+            }
+        }
+    }
+
+    @objc func removeApp(_ sender: Any) {
+        let selectedRow = appTableView.selectedRow
+        if selectedRow >= 0 && selectedRow < appList.count {
+            appList.remove(at: selectedRow)
+            appTableView.reloadData()
+            saveAppList()
+        }
+    }
+
+    func loadAppList() {
+        appList = AppListPreferences.getAppList()
+        appTableView?.reloadData()
+    }
+
+    func saveAppList() {
+        var prefs = AppListPreferences.load()
+        prefs.apps = appList
+        prefs.save()
+        reloadAllowedApps()
+    }
+
+    // MARK: - NSTableViewDataSource
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return appList.count
+    }
+
+    // MARK: - NSTableViewDelegate
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let cellIdentifier = NSUserInterfaceItemIdentifier("AppCell")
+        var cell = tableView.makeView(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView
+
+        if cell == nil {
+            cell = NSTableCellView()
+            cell?.identifier = cellIdentifier
+            let textField = NSTextField(labelWithString: "")
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            cell?.addSubview(textField)
+            cell?.textField = textField
+            NSLayoutConstraint.activate([
+                textField.leadingAnchor.constraint(equalTo: cell!.leadingAnchor, constant: 4),
+                textField.trailingAnchor.constraint(equalTo: cell!.trailingAnchor, constant: -4),
+                textField.centerYAnchor.constraint(equalTo: cell!.centerYAnchor)
+            ])
+        }
+
+        cell?.textField?.stringValue = appList[row]
+        return cell
+    }
     
     @objc dynamic var launchAtLogin = LaunchAtLogin.kvo
     
@@ -29,6 +220,10 @@ class ViewController: NSViewController {
             let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self)
             updateKeybindButtonFromJson(globalKeybinds)
         }
+
+        // App list setup
+        setupAppListButton()
+        loadAppList()
     }
     
     // update keybinding when view disappear
