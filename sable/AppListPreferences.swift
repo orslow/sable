@@ -14,8 +14,9 @@ struct AppListPreferences: Codable {
     static let defaultApps = ["Chrome", "Safari", "Brave", "Firefox"]
 
     static func load() -> AppListPreferences {
-        if Storage.fileExists(fileName, in: .documents) {
-            return Storage.retrieve(fileName, from: .documents, as: AppListPreferences.self)
+        if Storage.fileExists(fileName, in: .documents),
+           let prefs = Storage.retrieve(fileName, from: .documents, as: AppListPreferences.self) {
+            return prefs
         }
         return AppListPreferences(apps: defaultApps)
     }

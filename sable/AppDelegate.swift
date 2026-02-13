@@ -46,12 +46,12 @@ func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent
     }
 }
 
-@NSApplicationMain
+@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength:NSStatusItem.squareLength)
 
-    let action: KeyBindings = KeyBindings()
+    let action = KeyBindings.shared
 
     let eventMask = (1 << CGEventType.rightMouseDown.rawValue) | (1 << CGEventType.rightMouseUp.rawValue) | (1 << CGEventType.rightMouseDragged.rawValue)
 
@@ -83,12 +83,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         waitForAccessibility()
     }
 
+    private var accessibilityRetryCount = 0
+    private let maxAccessibilityRetries = 300 // 5분 타임아웃
+
     func waitForAccessibility() {
+        accessibilityRetryCount = 0
         accessibilityCheckTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else { timer.invalidate(); return }
             if AXIsProcessTrusted() {
                 timer.invalidate()
-                self?.accessibilityCheckTimer = nil
-                self?.startEventTap()
+                self.accessibilityCheckTimer = nil
+                self.startEventTap()
+            } else {
+                self.accessibilityRetryCount += 1
+                if self.accessibilityRetryCount >= self.maxAccessibilityRetries {
+                    timer.invalidate()
+                    self.accessibilityCheckTimer = nil
+                    let alert = NSAlert()
+                    alert.messageText = "Accessibility Permission Timeout"
+                    alert.informativeText = "Please grant accessibility permission in System Preferences and restart sable."
+                    alert.addButton(withTitle: "Quit")
+                    alert.runModal()
+                    NSApplication.shared.terminate(nil)
+                }
             }
         }
     }

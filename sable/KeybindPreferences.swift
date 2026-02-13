@@ -15,13 +15,26 @@ struct KeybindPreferences: Codable {
     let i: Int
     let k: Int
     let j: Int
-    let down_right: Int
-    let right_up: Int
-    let up_left: Int
-    let left_down: Int
-    let up_right: Int
-    let right_down: Int
-    let down_left: Int
-    let left_up: Int
-    let characters : String?
+    let downRight: Int
+    let rightUp: Int
+    let upLeft: Int
+    let leftDown: Int
+    let upRight: Int
+    let rightDown: Int
+    let downLeft: Int
+    let leftUp: Int
+    let characters: String?
+
+    enum CodingKeys: String, CodingKey {
+        case left, right, up, down, u, i, k, j
+        case downRight = "down_right"
+        case rightUp = "right_up"
+        case upLeft = "up_left"
+        case leftDown = "left_down"
+        case upRight = "up_right"
+        case rightDown = "right_down"
+        case downLeft = "down_left"
+        case leftUp = "left_up"
+        case characters
+    }
 }

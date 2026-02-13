@@ -216,8 +216,8 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         super.viewDidLoad()
         vc = self
 
-        if Storage.fileExists("globalKeybind.json", in: .documents) {
-            let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self)
+        if Storage.fileExists("globalKeybind.json", in: .documents),
+           let globalKeybinds = Storage.retrieve("globalKeybind.json", from: .documents, as: KeybindPreferences.self) {
             updateKeybindButtonFromJson(globalKeybinds)
         }
 
@@ -228,7 +228,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     
     // update keybinding when view disappear
     func updateGlobalShortcutOnJson() {
-        let newGlobalKeybind = KeybindPreferences.init(
+        let newGlobalKeybind = KeybindPreferences(
             left: leftButton.indexOfSelectedItem,
             right: rightButton.indexOfSelectedItem,
             up: upButton.indexOfSelectedItem,
@@ -237,14 +237,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
             i: iButton.indexOfSelectedItem,
             k: kButton.indexOfSelectedItem,
             j: jButton.indexOfSelectedItem,
-            down_right: downRightButton.indexOfSelectedItem,
-            right_up: rightUpButton.indexOfSelectedItem,
-            up_left: upLeftButton.indexOfSelectedItem,
-            left_down: leftDownButton.indexOfSelectedItem,
-            up_right: upRightButton.indexOfSelectedItem,
-            right_down: rightDownButton.indexOfSelectedItem,
-            down_left: downLeftButton.indexOfSelectedItem,
-            left_up: leftUpButton.indexOfSelectedItem,
+            downRight: downRightButton.indexOfSelectedItem,
+            rightUp: rightUpButton.indexOfSelectedItem,
+            upLeft: upLeftButton.indexOfSelectedItem,
+            leftDown: leftDownButton.indexOfSelectedItem,
+            upRight: upRightButton.indexOfSelectedItem,
+            rightDown: rightDownButton.indexOfSelectedItem,
+            downLeft: downLeftButton.indexOfSelectedItem,
+            leftUp: leftUpButton.indexOfSelectedItem,
             characters: "nothing"
         )
 
@@ -261,14 +261,14 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         iButton.selectItem(at: KeybindPreference.i)
         kButton.selectItem(at: KeybindPreference.k)
         jButton.selectItem(at: KeybindPreference.j)
-        downRightButton.selectItem(at: KeybindPreference.down_right)
-        rightUpButton.selectItem(at: KeybindPreference.right_up)
-        upLeftButton.selectItem(at: KeybindPreference.up_left)
-        leftDownButton.selectItem(at: KeybindPreference.left_down)
-        upRightButton.selectItem(at: KeybindPreference.up_right)
-        rightDownButton.selectItem(at: KeybindPreference.right_down)
-        downLeftButton.selectItem(at: KeybindPreference.down_left)
-        leftUpButton.selectItem(at: KeybindPreference.left_up)
+        downRightButton.selectItem(at: KeybindPreference.downRight)
+        rightUpButton.selectItem(at: KeybindPreference.rightUp)
+        upLeftButton.selectItem(at: KeybindPreference.upLeft)
+        leftDownButton.selectItem(at: KeybindPreference.leftDown)
+        upRightButton.selectItem(at: KeybindPreference.upRight)
+        rightDownButton.selectItem(at: KeybindPreference.rightDown)
+        downLeftButton.selectItem(at: KeybindPreference.downLeft)
+        leftUpButton.selectItem(at: KeybindPreference.leftUp)
     }
 
     override var representedObject: Any? {
@@ -276,8 +276,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         // Update the view, if already loaded.
         }
     }
-
-    let keySimulator: KeyBindings = KeyBindings()
 
     var current_x: CGFloat = 0.0, current_y: CGFloat = 0.0, x_movement: CGFloat = 0.0, y_movement: CGFloat = 0.0
     var detected = 0b00000000 // starts from 12 o'clock
@@ -300,8 +298,6 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     func globalRightMouseUp(with event: CGEvent) {
-        print("0b"+String(detected, radix: 2))
-        
         // just right click without any gesture
         if detected==0 {
             action.rightClick(pos: event.location)
@@ -321,9 +317,10 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         */
     }
 
-    let mrd: CGFloat = 50.0 // minimum recognition distance (최소 인식 거리)
+    let mrd: CGFloat = 50.0 // 최소 인식 거리
+    let sqrtMrd: CGFloat = sqrt(50.0) // sqrt(mrd) 캐시
     let angle: CGFloat = 0.25 // 대각선 인식 기준 각도
-    
+
     func gestureRecorder(xd: CGFloat, yd: CGFloat) {
         if yd > mrd && abs(xd) / yd < angle { // 12 o'clock
             detected |= 0b10000000
@@ -337,21 +334,21 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         if xd < -mrd && abs(yd) / -xd < angle { // 9 o'clock
             detected |= 0b00000010
         }
-        if xd > sqrt(mrd) && yd > sqrt(mrd) &&
+        if xd > sqrtMrd && yd > sqrtMrd &&
             yd / xd > angle && xd / yd > angle { // 1:30
             detected |= 0b01000000
         }
-        if xd > sqrt(mrd) && yd < -sqrt(mrd) &&
+        if xd > sqrtMrd && yd < -sqrtMrd &&
             -yd / xd > angle && xd / -yd > angle { // 4:30
             detected |= 0b00010000
         }
-        if xd < -sqrt(mrd) && yd < -sqrt(mrd) &&
+        if xd < -sqrtMrd && yd < -sqrtMrd &&
             yd / xd > angle && xd / yd > angle { // 7:30
             detected |= 0b00000100
         }
-        if xd < -sqrt(mrd) && yd > sqrt(mrd) &&
+        if xd < -sqrtMrd && yd > sqrtMrd &&
             yd / -xd > angle && -xd / yd > angle { // 10:30
-            detected |= 0b0000001
+            detected |= 0b00000001
         }
     }
     @IBOutlet weak var leftButton: NSPopUpButton!
@@ -412,7 +409,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
     
     // No action, Back, Forward, Scroll to top, Scroll to bottom, Close tab, Reopen closed tab, Move to left tab, Move to right tab, Reload
-    let action: KeyBindings = KeyBindings()
+    let action = KeyBindings.shared
     func makeShortcut(item: String) {
         switch item {
         case "Back":

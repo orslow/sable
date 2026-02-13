@@ -47,7 +47,7 @@ public class Storage {
     ///   - fileName: what to name the file where the struct data will be stored
     static func store<T: Encodable>(_ object: T, to directory: Directory, as fileName: String) {
         let url = getURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
-        
+
         let encoder = JSONEncoder()
         do {
             let data = try encoder.encode(object)
@@ -56,7 +56,7 @@ public class Storage {
             }
             FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
         } catch {
-            fatalError(error.localizedDescription)
+            print("Storage: failed to store \(fileName) — \(error.localizedDescription)")
         }
     }
     
@@ -67,23 +67,19 @@ public class Storage {
     ///   - directory: directory where struct data is stored
     ///   - type: struct type (i.e. Message.self)
     /// - Returns: decoded struct model(s) of data
-    static func retrieve<T: Decodable>(_ fileName: String, from directory: Directory, as type: T.Type) -> T {
+    static func retrieve<T: Decodable>(_ fileName: String, from directory: Directory, as type: T.Type) -> T? {
         let url = getURL(for: directory).appendingPathComponent(fileName, isDirectory: false)
-        
-        if !FileManager.default.fileExists(atPath: url.path) {
-            fatalError("File at path \(url.path) does not exist!")
+
+        guard FileManager.default.fileExists(atPath: url.path),
+              let data = FileManager.default.contents(atPath: url.path) else {
+            return nil
         }
-        
-        if let data = FileManager.default.contents(atPath: url.path) {
-            let decoder = JSONDecoder()
-            do {
-                let model = try decoder.decode(type, from: data)
-                return model
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-        } else {
-            fatalError("No data at \(url.path)!")
+
+        do {
+            return try JSONDecoder().decode(type, from: data)
+        } catch {
+            print("Storage: failed to decode \(fileName) — \(error.localizedDescription)")
+            return nil
         }
     }
     
@@ -96,7 +92,7 @@ public class Storage {
                 try FileManager.default.removeItem(at: fileUrl)
             }
         } catch {
-            fatalError(error.localizedDescription)
+            print("Storage: failed to clear directory — \(error.localizedDescription)")
         }
     }
     
@@ -107,7 +103,7 @@ public class Storage {
             do {
                 try FileManager.default.removeItem(at: url)
             } catch {
-                fatalError(error.localizedDescription)
+                print("Storage: failed to remove \(fileName) — \(error.localizedDescription)")
             }
         }
     }
