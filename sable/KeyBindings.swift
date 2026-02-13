@@ -20,7 +20,8 @@ class KeyBindings {
     let w                         : UInt16 = 0x0D
     let t                         : UInt16 = 0x11
     let r                         : UInt16 = 0x0F
-    
+    let tab                       : UInt16 = 0x30
+
     // 20210701 added
     let n                         : UInt16 = 0x2D
     
@@ -33,10 +34,10 @@ class KeyBindings {
     let pageRightBracketKeyDownown: CGEvent!
     let pageRightBracketKeyUpp: CGEvent!
     
-    let tabLeftBracketKeyDownown: CGEvent!
-    let tabLeftBracketKeyUpp: CGEvent!
-    let tabRightBracketKeyDownown: CGEvent!
-    let tabRightBracketKeyUpp: CGEvent!
+    let tabLeftKeyDown: CGEvent!   // Ctrl+Shift+Tab
+    let tabLeftKeyUp: CGEvent!
+    let tabRightKeyDown: CGEvent!  // Ctrl+Tab
+    let tabRightKeyUp: CGEvent!
 
     let upArrowKeyDownown: CGEvent!
     let upArrowKeyUpp: CGEvent!
@@ -58,49 +59,60 @@ class KeyBindings {
     init() {
         pageLeftBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
         pageLeftBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
-        pageLeftBracketKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        pageLeftBracketKeyDownown?.flags = CGEventFlags.maskCommand
+        pageLeftBracketKeyUpp?.flags = CGEventFlags.maskCommand
+
         pageRightBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
         pageRightBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
-        pageRightBracketKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        pageRightBracketKeyDownown?.flags = CGEventFlags.maskCommand
+        pageRightBracketKeyUpp?.flags = CGEventFlags.maskCommand
+
         upArrowKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: true)
         upArrowKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: upArrow, keyDown: false)
-        upArrowKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        upArrowKeyDownown?.flags = CGEventFlags.maskCommand
+        upArrowKeyUpp?.flags = CGEventFlags.maskCommand
+
         downArrowKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: true)
         downArrowKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: downArrow, keyDown: false)
-        downArrowKeyDownown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        downArrowKeyDownown?.flags = CGEventFlags.maskCommand
+        downArrowKeyUpp?.flags = CGEventFlags.maskCommand
+
         wKeyDown = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: true)
         wKeyUp = CGEvent(keyboardEventSource: src, virtualKey: w, keyDown: false)
-        wKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        wKeyDown?.flags = CGEventFlags.maskCommand
+        wKeyUp?.flags = CGEventFlags.maskCommand
+
         tKeyDown = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: true)
         tKeyUp = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: false)
-        tKeyDown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
-        
-        tabLeftBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: true)
-        tabLeftBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: leftBracket, keyDown: false)
-        tabLeftBracketKeyDownown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
-        
-        tabRightBracketKeyDownown = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: true)
-        tabRightBracketKeyUpp = CGEvent(keyboardEventSource: src, virtualKey: rightBracket, keyDown: false)
-        tabRightBracketKeyDownown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift ] // with cmd+shift+
-        
+        tKeyDown?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift]
+        tKeyUp?.flags = [CGEventFlags.maskCommand, CGEventFlags.maskShift]
+
+        tabLeftKeyDown = CGEvent(keyboardEventSource: src, virtualKey: tab, keyDown: true)
+        tabLeftKeyUp = CGEvent(keyboardEventSource: src, virtualKey: tab, keyDown: false)
+        tabLeftKeyDown?.flags = [CGEventFlags.maskControl, CGEventFlags.maskShift]
+        tabLeftKeyUp?.flags = [CGEventFlags.maskControl, CGEventFlags.maskShift]
+
+        tabRightKeyDown = CGEvent(keyboardEventSource: src, virtualKey: tab, keyDown: true)
+        tabRightKeyUp = CGEvent(keyboardEventSource: src, virtualKey: tab, keyDown: false)
+        tabRightKeyDown?.flags = CGEventFlags.maskControl
+        tabRightKeyUp?.flags = CGEventFlags.maskControl
+
         rKeyDown = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: true)
         rKeyUp = CGEvent(keyboardEventSource: src, virtualKey: r, keyDown: false)
-        rKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        rKeyDown?.flags = CGEventFlags.maskCommand
+        rKeyUp?.flags = CGEventFlags.maskCommand
+
         // new window
         nKeyDown = CGEvent(keyboardEventSource: src, virtualKey: n, keyDown: true)
         nKeyUp = CGEvent(keyboardEventSource: src, virtualKey: n, keyDown: false)
-        nKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
-        
+        nKeyDown?.flags = CGEventFlags.maskCommand
+        nKeyUp?.flags = CGEventFlags.maskCommand
+
         // new tab
         ntKeyDown = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: true)
         ntKeyUp = CGEvent(keyboardEventSource: src, virtualKey: t, keyDown: false)
-        ntKeyDown?.flags = CGEventFlags.maskCommand // with cmd+
+        ntKeyDown?.flags = CGEventFlags.maskCommand
+        ntKeyUp?.flags = CGEventFlags.maskCommand
 
     }
 
@@ -150,13 +162,13 @@ class KeyBindings {
     }
     
     func leftTab() {
-        tabLeftBracketKeyDownown?.post(tap: loc)
-        tabLeftBracketKeyUpp?.post(tap: loc)
+        tabLeftKeyDown?.post(tap: loc)
+        tabLeftKeyUp?.post(tap: loc)
     }
-    
+
     func rightTab() {
-        tabRightBracketKeyDownown?.post(tap: loc)
-        tabRightBracketKeyUpp?.post(tap: loc)
+        tabRightKeyDown?.post(tap: loc)
+        tabRightKeyUp?.post(tap: loc)
     }
     
     func reload() {
