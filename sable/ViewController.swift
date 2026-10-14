@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import LaunchAtLogin
 
 weak var vc = ViewController()
 

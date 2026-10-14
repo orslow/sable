@@ -71,8 +71,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             requestAccessibility()
         }
-
-        CFRunLoopRun()
     }
 
     func requestAccessibility() {

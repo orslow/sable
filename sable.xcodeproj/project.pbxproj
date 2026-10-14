@@ -15,7 +15,7 @@
 		4C7E948A276F3D5100910C82 /* KeybindPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */; };
 		4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948C276F3D5B00910C82 /* Storage.swift */; };
 		4C7E9490276F3D6400910C82 /* KeyBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E948F276F3D6400910C82 /* KeyBindings.swift */; };
-		4C7E9494276F3DB700910C82 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4C7E9493276F3DB700910C82 /* LaunchAtLogin */; };
+		4C7E9499276F3D8000910C82 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E949A276F3D8000910C82 /* LaunchAtLogin.swift */; };
 		4C7E9497276F3D7000910C82 /* AppListPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9498276F3D7000910C82 /* AppListPreferences.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +32,7 @@
 		4C7E948C276F3D5B00910C82 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		4C7E948F276F3D6400910C82 /* KeyBindings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBindings.swift; sourceTree = "<group>"; };
 		4C7E9498276F3D7000910C82 /* AppListPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppListPreferences.swift; sourceTree = "<group>"; };
+		4C7E949A276F3D8000910C82 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C7E9494276F3DB700910C82 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +72,7 @@
 				4C7E948F276F3D6400910C82 /* KeyBindings.swift */,
 				4C7E9489276F3D5100910C82 /* KeybindPreferences.swift */,
 				4C7E9498276F3D7000910C82 /* AppListPreferences.swift */,
+				4C7E949A276F3D8000910C82 /* LaunchAtLogin.swift */,
 				4C7E9479276F3D0E00910C82 /* Assets.xcassets */,
 				4C7E947B276F3D0E00910C82 /* Main.storyboard */,
 				4C7E947E276F3D0E00910C82 /* Info.plist */,
@@ -90,16 +91,12 @@
 				4C7E946E276F3D0D00910C82 /* Sources */,
 				4C7E946F276F3D0D00910C82 /* Frameworks */,
 				4C7E9470276F3D0D00910C82 /* Resources */,
-				4C7E9496276F3DC300910C82 /* Launch at Login Helper Run Script */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = sable;
-			packageProductDependencies = (
-				4C7E9493276F3DB700910C82 /* LaunchAtLogin */,
-			);
 			productName = sable;
 			productReference = 4C7E9472276F3D0D00910C82 /* sable.app */;
 			productType = "com.apple.product-type.application";
@@ -127,9 +124,6 @@
 				Base,
 			);
 			mainGroup = 4C7E9469276F3D0C00910C82;
-			packageReferences = (
-				4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
-			);
 			productRefGroup = 4C7E9473276F3D0D00910C82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,27 +145,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		4C7E9496276F3DC300910C82 /* Launch at Login Helper Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Launch at Login Helper Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		4C7E946E276F3D0D00910C82 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -184,6 +157,7 @@
 				4C7E948A276F3D5100910C82 /* KeybindPreferences.swift in Sources */,
 				4C7E948D276F3D5B00910C82 /* Storage.swift in Sources */,
 				4C7E9497276F3D7000910C82 /* AppListPreferences.swift in Sources */,
+				4C7E9499276F3D8000910C82 /* LaunchAtLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +226,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -307,7 +281,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -376,25 +350,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4C7E9493276F3DB700910C82 /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4C7E9492276F3DB700910C82 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
-			productName = LaunchAtLogin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4C7E946A276F3D0C00910C82 /* Project object */;
 }
