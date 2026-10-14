@@ -55,8 +55,8 @@ KeyBindings.shared.*()  -> CGEvent.post(tap: .cghidEventTap)            KeyBindi
 - **`applicationDidFinishLaunching`에서 런루프를 직접 돌리지 말 것**: 예전 코드는 마지막에 `CFRunLoopRun()`을 호출했음. 15.x에서는 HIToolbox 이벤트 스레드가 `QuitEventLoop -> CFRunLoopStop`을 호출해 우연히 풀렸지만, 이 내부 동작이 바뀐 OS(Golden Gate)에서는 실행이 끝나지 않아 모래시계만 도는 원인이 됨. 이벤트 탭은 메인 런루프에 등록만 하면 `NSApplication.run()`이 처리함
 - **다시 빌드하면 손쉬운 사용 권한이 풀림**: 정식 인증서 없이 로컬 서명(ad-hoc)한 앱이라 TCC가 cdhash로 앱을 식별함. 시스템 설정 목록에는 켜져 있어도 `AXIsProcessTrusted()`가 false임. 목록에서 sable을 삭제(-)한 뒤 다시 추가해야 함
 - **권한 대기 타임아웃**: 권한이 없으면 1초 간격으로 최대 5분 폴링한 뒤 종료 알림을 띄움(`waitForAccessibility`)
-- **이벤트 탭 비활성화 미처리**: 콜백이 느리면 OS가 탭을 끄는데(`.tapDisabledByTimeout`), 현재 콜백은 이를 처리해 다시 켜지 않음. 제스처가 갑자기 멈추면 앱을 재시작해야 함
-- **콜백 반환값**: 통과 이벤트를 `Unmanaged.passRetained(event)`로 반환함. 일반적인 패턴은 `passUnretained`라서 이벤트마다 retain이 하나씩 남음(누수 가능)
+- **이벤트 탭 비활성화**: 콜백이 느리면 OS가 탭을 끄고 `.tapDisabledByTimeout`(또는 `.tapDisabledByUserInput`)을 콜백으로 보냄. 콜백 맨 앞에서 전역 `gestureEventTap`으로 다시 켬. 꺼진 동안 mouseUp을 놓칠 수 있어 `globalRightMouseDown`에서 제스처 상태를 매번 초기화함
+- **콜백 반환값**: 통과 이벤트는 반드시 `Unmanaged.passUnretained(event)`로 반환. `passRetained`를 쓰면 이벤트마다 retain이 하나씩 남아 누수됨
 - **`vc` 전역 변수**: `weak var vc = ViewController()`는 즉시 해제되어 nil임. 실제 값은 스토리보드가 `ViewController.viewDidLoad()`를 호출할 때 설정됨
 - **레포의 `sable.app`**: 빌드 산출물을 직접 커밋함. Release로 빌드해 교체할 것(Debug 빌드는 `sable.debug.dylib`가 포함됨)
 - **로그인 항목 승인**: `SMAppService.register()` 후 상태가 `.requiresApproval`이면 시스템 설정 > 일반 > 로그인 항목에서 허용해야 함. 이 경우 코드가 해당 화면을 엶

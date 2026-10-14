@@ -19,7 +19,17 @@ func isAppAllowed(_ appName: String?) -> Bool {
     return allowedApps.contains { name.contains($0) }
 }
 
+var gestureEventTap: CFMachPort?
+
 func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, refcon: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
+
+    // 타임아웃/사용자 입력으로 탭 비활성화 시 재활성화
+    if type == .tapDisabledByTimeout || type == .tapDisabledByUserInput {
+        if let tap = gestureEventTap {
+            CGEvent.tapEnable(tap: tap, enable: true)
+        }
+        return Unmanaged.passUnretained(event)
+    }
 
     let appName = NSWorkspace.shared.frontmostApplication?.localizedName
 
@@ -28,7 +38,7 @@ func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent
         if [.rightMouseDown].contains(type) {
             let keyCode = event.getIntegerValueField(.mouseEventClickState)
             if keyCode==2 {
-                return Unmanaged.passRetained(event)
+                return Unmanaged.passUnretained(event)
             }
             vc?.globalRightMouseDown(with: event)
         } else if [.rightMouseDragged].contains(type) {
@@ -36,13 +46,13 @@ func myCGEventCallback(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent
         } else if [.rightMouseUp].contains(type) {
             let keyCode = event.getIntegerValueField(.mouseEventClickState)
             if keyCode==2 {
-                return Unmanaged.passRetained(event)
+                return Unmanaged.passUnretained(event)
             }
             vc?.globalRightMouseUp(with: event)
         }
         return nil
     } else {
-        return Unmanaged.passRetained(event)
+        return Unmanaged.passUnretained(event)
     }
 }
 
@@ -125,6 +135,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSApplication.shared.terminate(nil)
             return
         }
+        gestureEventTap = eventTap
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
         CGEvent.tapEnable(tap: eventTap, enable: true)

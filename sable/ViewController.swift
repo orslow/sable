@@ -282,6 +282,9 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     func globalRightMouseDown(with event: CGEvent) {
         current_x = event.location.x
         current_y = event.location.y
+        // 이전 제스처 잔여 상태 초기화 (탭 비활성화로 mouseUp 누락, 짧은 드래그 후 우클릭 대비)
+        (x_movement, y_movement) = (0, 0)
+        detected = 0
         // print(current_x, current_y)
     }
 
